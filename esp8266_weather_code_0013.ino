@@ -57,7 +57,7 @@ void setup()
   }
   else
   {
-    tft.println("No responce from Module, please restart...");
+    tft.println("No response from Module, please restart...");
     while(1);
   }
   
@@ -76,7 +76,7 @@ void setup()
   }
   if (!connected)
   {
-    tft.println("Coudn't connect to WiFi.");
+    tft.println("Couldn't connect to WiFi.");
     while(1);
   }
   
@@ -84,7 +84,7 @@ void setup()
 
   tft.print("Testing Version");
   Serial.println("AT+GMR");
-  show_incomming();
+  show_incoming();
   get_key_press("Press next...");
   
   Serial.println("AT+CIPMUX=0"); // set to single connection mode
@@ -206,7 +206,7 @@ void tft_init(void)
   tft.println("ESP8266 Weather Code....");
 }
 
-int show_incomming()
+int show_incoming()
 {
   tft.fillScreen(ST7735_BLACK);
   tft.setCursor(1, 1);
@@ -221,5 +221,5 @@ void get_key_press(String msg)
   tft.setCursor(0, 116);  
   tft.println(msg);  
   while(digitalRead(CONTINUE) == 0);
-  show_incomming();
+  show_incoming();
 }

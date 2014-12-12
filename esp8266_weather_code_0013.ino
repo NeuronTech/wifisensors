@@ -46,7 +46,7 @@ void setup()
 
   Serial.begin(9600); // firmware 902 //
   Serial.setTimeout(5000);
-  
+
   tft_init();
 
   Serial.println("AT+RST"); // restet and test if module is ready
@@ -60,7 +60,7 @@ void setup()
     tft.println("No response from Module, please restart...");
     while(1);
   }
-  
+
   get_key_press("WiFi is ready");
 
   // try to connect to wifi
@@ -79,14 +79,14 @@ void setup()
     tft.println("Couldn't connect to WiFi.");
     while(1);
   }
-  
+
   delay(100);
 
   tft.print("Testing Version");
   Serial.println("AT+GMR");
   show_incoming();
   get_key_press("Press next...");
-  
+
   Serial.println("AT+CIPMUX=0"); // set to single connection mode
 }
 
@@ -162,7 +162,7 @@ void loop()
   tft.setCursor(2, 85);
   tft.setTextColor(ST7735_YELLOW);
   tft.setTextSize(2);
-  tft.print("Humidity: ");
+  tft.print("Humid: ");
   tft.print((int)humidity);
   tft.println("%");
   delay(600000);
@@ -215,11 +215,12 @@ int show_incoming()
   tft.println(info);
 }
 
-// delay until a key is pressed, no debounce required //
+// delay until a key is pressed, no de bounce required //
+// allows us to control the process, can be removed later //
 void get_key_press(String msg)
 {
-  tft.setCursor(0, 116);  
-  tft.println(msg);  
+  tft.setCursor(0, 116);
+  tft.println(msg);
   while(digitalRead(CONTINUE) == 0);
   show_incoming();
 }

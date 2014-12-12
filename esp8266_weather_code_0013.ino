@@ -1,26 +1,23 @@
 /*
-  Version 1.0.0 is original from net: link below...
-  Version 1.0.2 works ....
-
-  ESP8266: 901 and 901 use 115200, for 902 use 9600 baud.
-
-  Include version display on TFT ...
-
-  Does not use software dialogue, uses TFT
-
   Based on: http://zeflo.com/2014/esp8266-weather-display/
+  
+  As we use a nice little inexpensive TFT to display the weather information,
+  we don't require software serial as we can also use the display for debug.
 
+  If we implement this on other sketches our sketch become portable ;)
+  
+  Version 1.0.13
+  
 */
 
 #include <JsonParser.h>
 
 // Pins for TFT display //
-#define cs		   10
-#define dc		    8
-#define rst		    9
+#define cs		 10
+#define dc		  8
+#define rst		  9
 
-// continue pin //
-#define CONTINUE 12
+#define CONTINUE 12    // simple wait for key press instead of delays //
 
 #include <Adafruit_GFX.h>    // Core graphics library
 #include <Adafruit_ST7735.h> // Hardware-specific library
@@ -42,16 +39,18 @@ char msg[80] = "";
 
 void setup()
 {
-  pinMode(12, INPUT);
+  pinMode(12, INPUT); // continue key //
 
   Serial.begin(9600); // firmware 902 //
   Serial.setTimeout(5000);
 
   tft_init();
 
-  Serial.println("AT+RST"); // restet and test if module is ready
-  delay(1500);
-  if(Serial.find("Ready"))
+  Serial.println("AT+RST"); // reset and test if module is ready //
+  
+  delay(1500); // how short can this be? //
+
+  if(Serial.find("Ready")) // is Serial.find case sensitive? //
   {
     tft.println("WiFi - Module is ready");
   }
@@ -64,20 +63,23 @@ void setup()
   get_key_press("WiFi is ready");
 
   // try to connect to wifi
-  boolean connected=false;
-  for (int i = 0; i < 5; i++)
+  boolean connected = false;
+
+  for(int i = 0; i < 5; i++)
   {
-    if (connectWiFi())
+    if(connectWiFi())
     {
       connected = true;
       tft.println("Connected to WiFi...");
       break;
     }
   }
-  if (!connected)
+
+  if(!connected)
   {
     tft.println("Couldn't connect to WiFi.");
     while(1);
+	  // implement hardware reset here //
   }
 
   delay(100);
@@ -85,7 +87,7 @@ void setup()
   tft.print("Testing Version");
   Serial.println("AT+GMR");
   show_incoming();
-  get_key_press("Press next...");
+  get_key_press("Press Key");
 
   Serial.println("AT+CIPMUX=0"); // set to single connection mode
 }
@@ -97,7 +99,11 @@ void loop()
   cmd += "\",80";
   Serial.println(cmd);
   tft.print(cmd);
-  if (Serial.find("Error")) return;
+
+  if(Serial.find("Error")) 
+  {
+	return;
+  }
 
   cmd = "GET /data/2.5/weather?id=";
   cmd += LOCATIONID;
@@ -121,19 +127,19 @@ void loop()
   }
 
   Serial.print(cmd);
-  unsigned int i = 0; //timeout counter
-  int n = 1; // char counter
+  unsigned int i = 0; // timeout counter
+  int n = 1;          // char counter
   char json[100]="{";
 
-  while (!Serial.find("\"main\":{")){} // find the part we are interested in.
+  while(!Serial.find("\"main\":{")){} // find the part we are interested in.
 
-  while (i < 60000)
+  while(i < 60000)
   {
     if(Serial.available())
     {
       char c = Serial.read();
       json[n]=c;
-      if(c=='}') break;
+      if (c=='}') break;
       n++;
       i=0;
     }
@@ -178,6 +184,7 @@ boolean connectWiFi()
   cmd+="\"";
   tft.println(cmd);
   Serial.println(cmd);
+
   delay(2000);
 
   if(Serial.find("OK"))
@@ -200,7 +207,7 @@ void tft_init(void)
   tft.setCursor(1, 1);
   tft.setTextColor(ST7735_WHITE);
   tft.println("Connect Hardware Seraial");
-  get_key_press("Press to begin...");
+  get_key_press("Press Key to begin...");
   tft.fillScreen(ST7735_BLACK);
   tft.setCursor(1, 1);
   tft.println("ESP8266 Weather Code....");
@@ -215,7 +222,7 @@ int show_incoming()
   tft.println(info);
 }
 
-// delay until a key is pressed, no de bounce required //
+// delay until a key is pressed, no de-bounce required //
 // allows us to control the process, can be removed later //
 void get_key_press(String msg)
 {

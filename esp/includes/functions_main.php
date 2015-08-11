@@ -139,3 +139,39 @@ function request_var($var_name, $default, $multibyte = false, $cookie = false)
 
 	return $var;
 }
+
+
+/**
+ copyright phpbb.com
+*/
+function meta_refresh($time, $url, $disable_cd_check = false)
+{
+	global $template, $refresh_data, $request;
+
+	$url = redirect($url, true, $disable_cd_check);
+	if ($request->is_ajax())
+	{
+		$refresh_data = array(
+			'time'	=> $time,
+			'url'	=> $url,
+		);
+	}
+	else
+	{
+		// For XHTML compatibility we change back & to &amp;
+		$url = str_replace('&', '&amp;', $url);
+
+		$template->assign_vars(array(
+			'META' => '<meta http-equiv="refresh" content="' . $time . '; url=' . $url . '" />')
+		);
+	}
+
+	return $url;
+}
+
+
+function redirect($url, $return = false, $disable_cd_check = false)
+{
+	header('Location: ' . $url);
+	exit;
+}

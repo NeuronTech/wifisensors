@@ -1,10 +1,6 @@
 /*
- *  This sketch sends data via HTTP GET requests to data.sparkfun.com service.
- *
- *  You need to get streamId and privateKey at data.sparkfun.com and paste them
- *  below. Or just customize this script to talk to other HTTP servers.
- *
- */
+ *  This sketch sends data via HTTP GET requests to my local server.
+*/
 
 #include <ESP8266WiFi.h>
 
@@ -12,14 +8,10 @@ const char* ssid = "xxxxxxxx";
 const char* password = "xxxxxxxxx";
 
 const char* host = "192.168.1.1";
-const char* streamId   = "xxxx";
-const char* privateKey = "xxxx";
 
 const int gpio0 = 0;
 const int buttonPin = 2;
 int buttonState = 0;
-long randNumber;
-unsigned int adcval;
 
 void setup() {
   Serial.begin(115200);
@@ -35,21 +27,14 @@ void setup() {
   }
 
   Serial.println();
-  Serial.println();
   Serial.println("WiFi connected");
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
-
   Serial.println(WiFi.RSSI());
 }
 
-int value = 101;
-
 void loop() {
   delay(5000);
-  ++value;
-
-  randNumber = random(255);
 
   Serial.print("Connecting to ");
   Serial.println(host);
@@ -58,7 +43,7 @@ void loop() {
   WiFiClient client;
   const int httpPort = 80;
   if (!client.connect(host, httpPort))
-	{
+  {
     Serial.println("connection failed");
     return;
   }
@@ -79,12 +64,7 @@ void loop() {
   client.print(String("GET ") + url + " HTTP/1.1\r\n" +
                "Host: " + host + "\r\n" +
                "Connection: close\r\n\r\n");
-  delay(10);
-  unsigned int poss = 0;
-  unsigned int pose = 0;
-  String data = "ac";
-
-  // Read reply from server and print them to Serial
+  // Read all the lines of the reply from server and print them to Serial
   while(client.available())
   {
     line = client.readStringUntil('\r');

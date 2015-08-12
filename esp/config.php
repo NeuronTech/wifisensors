@@ -4,3 +4,8 @@
 	$username = "root";
 	$password = "";
 	$database = "esp";
+
+	@define('DEBUG', true);
+	@define ('STRIP', true);
+
+?>

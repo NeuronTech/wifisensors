@@ -84,8 +84,6 @@ if (!$data)
 	$data .= " Copyright Mike O'Toole 13062015 ";
 }
 
-echo '<link rel="stylesheet" type="text/css" href="info/style.css" />';
-
 include_once('includes/functions.php');
 
 $data = get_last_active();
@@ -97,7 +95,7 @@ include('left_blocks.html');
 
 ?>
 
-<h3 style="margin: 3px;">Last Activity:  <?php echo $json_array['time']; ?> (<?php echo $json_array['date']; ?>) </h3>
+<h4 style="margin: 3px; margin-bottom:10px;">Latest activity:  <?php echo $json_array['time']; ?> (<?php echo $json_array['date']; ?>) </h4>
 	<div class="box" style="margin:0; margin-bottom: 20px; ">
 
 		<ul>

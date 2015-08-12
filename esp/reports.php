@@ -34,7 +34,7 @@ $json_arrays = get_data(0, true);
 include('header.html');
 include('left_blocks.html');
 ?>
-<h3 style="margin: 3px;">ESP 8266 Sensors:</h3>
+<h4 style="margin:3px; margin-bottom:10px;">Full list of sensors (press associated gear icon to edit).</h4>
 <div class="xbox" style="margin:0;">
 	<table class="ttable">
 		<tr>

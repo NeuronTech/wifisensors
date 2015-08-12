@@ -208,6 +208,11 @@ function save_data($data)
 			esp_actives     = '" . $data['esp_actives'] . "'
 		WHERE esp_id        = '" . $data['esp_id'] . "'";
 
+	if (DEBUG)
+	{
+		var_dump($sql);
+	}
+
 	if(!$result = mysqli_query($dbhandle, $sql))
 	{
 		echo 'INVALID QUERY<br />';

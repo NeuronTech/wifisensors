@@ -13,22 +13,13 @@
 */
 
 define('IN_CODE', true);
+
 $root_path = (defined('ROOT_PATH')) ? ROOT_PATH : './';
 $phpEx = substr(strrchr(__FILE__, '.'), 1);
 
 include($root_path . 'common.' . $phpEx);
 include($root_path . 'includes/functions_main.' . $phpEx);
-
-
-$msg = ">";
-$data = start();
-
-if (!$data)
-{
-	$data .= " Copyright Mike O'Toole 13062015 ";
-}
-
-include_once('includes/functions.php');
+include($root_path . 'includes/functions.' . $phpEx);
 
 $action = request_var('action', '');
 

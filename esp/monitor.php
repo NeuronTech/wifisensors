@@ -69,65 +69,18 @@ onload = function ()
 */
 
 define('IN_CODE', true);
+
 $root_path = (defined('ROOT_PATH')) ? ROOT_PATH : './';
 $phpEx = substr(strrchr(__FILE__, '.'), 1);
-
 include($root_path . 'common.' . $phpEx);
 include($root_path . 'includes/functions_main.' . $phpEx);
+include($root_path . 'includes/functions.' . $phpEx);
 
-
-$msg = ">";
-$data = start();
-
-if (!$data)
-{
-	$data .= " Copyright Mike O'Toole 13062015 ";
-}
-
-include_once('includes/functions.php');
 
 $data = get_last_active();
-
 $json_array = get_data($data['esp_id']);
 
 include('header.html');
 include('left_blocks.html');
-
-?>
-
-<h4 style="margin: 3px; margin-bottom:10px;">Latest activity:  <?php echo $json_array['time']; ?> (<?php echo $json_array['date']; ?>) </h4>
-	<div class="box" style="margin:0; margin-bottom: 20px; ">
-
-		<ul>
-			<li>ESP: <span class="ajax" id="esp" style="font-size:15px">
-			<?php echo $json_array['esp']; ?>
-			</span></li>
-			<li>Zone: <span class="ajax" id="zone" style="font-size:15px">
-			<?php echo $json_array['zone']; ?>
-			</span></li>
-			<li>Channel: <span class="ajax" id="chan" style="font-size:15px">
-			<?php echo $json_array['chan']; ?>
-			</span></li>
-			<li>Location: <span class="ajax" id="location" style="font-size:15px">
-			<?php echo $json_array['location']; ?>
-			</span></li>
-			<li>Time: <span class="ajax" id="time" style="font-size:15px">
-			<?php echo $json_array['time']; ?>
-			</span> (UCT)</li>
-			<li>Date: <span class="ajax" id="date" style="font-size:15px">
-			<?php echo $json_array['date']; ?>
-			</span></li>
-			<li>Sensor: <span class="ajax" id="level" style="font-size:15px">
-			<?php echo $json_array['level']; ?>
-			</span></li>
-			<li>Battery: <span class="ajax" id="batt" style="font-size:15px;">
-			<?php echo $json_array['batt']; ?>
-			</span> Volts</li>
-			<li>Actives: <span class="ajax" id="actives" style="font-size:15px;">
-			<?php echo $json_array['actives']; ?>
-			</span></li>
-		</ul>
-	</div>
-<?php
-
+include('section_monitor.html');
 include('footer.html');

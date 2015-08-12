@@ -140,10 +140,6 @@ function request_var($var_name, $default, $multibyte = false, $cookie = false)
 	return $var;
 }
 
-
-/**
- copyright phpbb.com
-*/
 function meta_refresh($time, $url, $disable_cd_check = false)
 {
 	global $template, $refresh_data, $request;
@@ -170,7 +166,7 @@ function meta_refresh($time, $url, $disable_cd_check = false)
 }
 
 
-function redirect($url, $return = false, $disable_cd_check = false)
+function redirect($url)
 {
 	header('Location: ' . $url);
 	exit;

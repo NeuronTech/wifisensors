@@ -67,11 +67,9 @@ function get_data($id, $all = false)
 	}
 	else if ($id == 0)
 	{
-		$id = 17;
-
+		// grab the last active sensor data //
 		$sql = "SELECT *
 			FROM devices
-			WHERE esp_id = " . $id . "
 			ORDER BY esp_rx_date DESC, esp_rx_time DESC";
 		$result = mysqli_query($dbhandle, $sql);
 

@@ -1,0 +1,110 @@
+<div class="index_intro">Search for ESP8266 Servers</div>
+<div class="divider"></div>
+
+<div class="index_body">
+If we query an ESP8266 device set up as a Server (using its IP) we can retrieve the current state of the GPIO's and ADC...<br />
+We can then save this information to our database for future use...<br /><br />
+</div>
+
+<div>
+	<form method="post" action="control.php?ip=192.168.1.8">
+
+		<fieldset class="fields2">
+			<legend>Enter the IP to retrieve ESP data</legend>
+			<dl>
+				<dt><label for="esp">IP:</label></dt>
+				<dd><input style="border-radius: 5px; width:120px" class="text" type="text" name="ip" placeholder="192.168.1.1" size="15" maxlength="15" tabindex="1" /></dd>
+			</dl>
+		</fieldset>
+
+		<fieldset class="submit-buttons">
+			<input class="button1" type="submit" id="submit" name="submit" value="Retrieve Data" />&nbsp;
+		</fieldset>
+
+	</form>
+</div>
+
+
+<form id="esp_add" name="esp" method="post" action="add_device.php?action=submit">
+	<div>
+		<fieldset>
+			<legend>Data</legend>
+			<dl>
+				<dt><label for="gpio0">GPIO 0:</label></dt>
+				<label><input type="radio" name="gpio0" value="0" onchange="setgpio(0,0)" /> Available</label>
+				<label><input type="radio" name="gpio0" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio1">GPIO 1:</label></dt>
+				<label><input type="radio" name="gpio1" value="1" onchange="setgpio(0,1)" /> Available</label>
+				<label><input type="radio" name="gpio1" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio2">GPIO 2:</label></dt>
+				<label><input type="radio" name="gpio2" value="1" onchange="setgpio(0,2)" /> Available</label>
+				<label><input type="radio" name="gpio2" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio3">GPIO 3:</label></dt>
+				<label><input type="radio" name="gpio3" value="1" onchange="setgpio(0,3)" /> Available</label>
+				<label><input type="radio" name="gpio3" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio4">GPIO 4:</label></dt>
+				<label><input type="radio" name="gpio4" value="1" onchange="setgpio(0,4)" /> Available</label>
+				<label><input type="radio" name="gpio4" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio5">GPIO 5:</label></dt>
+				<label><input type="radio" name="gpio5" value="1" onchange="setgpio(0,5)" /> Available</label>
+				<label><input type="radio" name="gpio5" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio1">GPIO 9:</label></dt>
+				<label><input type="radio" name="gpio9" value="1" onchange="setgpio(0,9)" /> Available</label>
+				<label><input type="radio" name="gpio9" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio2">GPIO 10:</label></dt>
+				<label><input type="radio" name="gpio10" value="1" onchange="setgpio(0,10)" /> Available</label>
+				<label><input type="radio" name="gpio10 value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio3">GPIO 12:</label></dt>
+				<label><input type="radio" name="gpio12" value="1" onchange="setgpio(0,12)" /> Available</label>
+				<label><input type="radio" name="gpio12" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio4">GPIO 13:</label></dt>
+				<label><input type="radio" name="gpio13" value="1" onchange="setgpio(0,13)" /> Available</label>
+				<label><input type="radio" name="gpio13" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio5">GPIO 14:</label></dt>
+				<label><input type="radio" name="gpio14" value="1" onchange="setgpio(0,14)" /> Available</label>
+				<label><input type="radio" name="gpio14" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio4">GPIO 15:</label></dt>
+				<label><input type="radio" name="gpio15" value="1" onchange="setgpio(0,15)" /> Available</label>
+				<label><input type="radio" name="gpio15" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio5">GPIO 16:</label></dt>
+				<label><input type="radio" name="gpio16" value="1" onchange="setgpio(0,16)" /> Available</label>
+				<label><input type="radio" name="gpio16" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="adc">ADC:</label></dt>
+				<label><input type="radio" name="adc" value="1" " /> Available</label>
+				<label><input type="radio" name="adc" value="0" checked="checked" " /> Not Available</label>
+			</dl>
+		</fieldset>
+		<!--
+		<fieldset class="submit-buttons">
+			<input class="button1" type="submit" id="submit" name="submit" value="Submit" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="Reset" />&nbsp;
+		</fieldset>
+		-->
+	</div>
+</form>

@@ -1,35 +1,135 @@
 <h4 style="margin: 3px;">
-	<span style="float:left; margin-bottom: 10px;">Monitoring activity (automatically load latest active sensor data)... </span> <span style="float:right"><?php echo $json_array['time']; ?> (<?php echo $json_array['date']; ?>)</span>
+	<span style="float:left; margin-bottom: 10px;">Monitoring activity (automatically load latest active sensor data)... </span>
+	<span style="float:right"><?php echo $json_array['time']; ?> (<?php echo $json_array['date']; ?>)</span>
 </h4>
 
-<div class="box" style="margin:0; margin-bottom: 20px;">
+<div class="formbox">
+<div class="dispdata">
 	<ul>
-		<li>ESP: <span class="ajax" id="esp" style="font-size:15px">
-		<?php echo $json_array['esp']; ?>
-		</span></li>
-		<li>Zone: <span class="ajax" id="zone" style="font-size:15px">
-		<?php echo $json_array['zone']; ?>
-		</span></li>
-		<li>Channel: <span class="ajax" id="chan" style="font-size:15px">
-		<?php echo $json_array['chan']; ?>
-		</span></li>
-		<li>Location: <span class="ajax" id="location" style="font-size:15px">
-		<?php echo $json_array['location']; ?>
-		</span></li>
-		<li>Time: <span class="ajax" id="time" style="font-size:15px">
-		<?php echo $json_array['time']; ?>
-		</span> (UCT)</li>
-		<li>Date: <span class="ajax" id="date" style="font-size:15px">
-		<?php echo $json_array['date']; ?>
-		</span></li>
-		<li>Sensor: <span class="ajax" id="level" style="font-size:15px">
-		<?php echo $json_array['level']; ?>
-		</span></li>
-		<li>Battery: <span class="ajax" id="batt" style="font-size:15px;">
-		<?php echo $json_array['batt']; ?>
-		</span> Volts</li>
-		<li>Actives: <span class="ajax" id="actives" style="font-size:15px;">
-		<?php echo $json_array['actives']; ?>
-		</span></li>
-	</ul>
+		<li>
+			<div class="col4">
+				<label for="id">ID</label>
+				<span class="ajax" id="id"><?php echo $json_array['id']; ?></span>
+			</div>
+			<div class="col4">&nbsp;
+			</div>
+			<div class="col4">&nbsp;
+			</div>
+			<div class="col4">
+				<label for="ip">IP</label>
+				<span class="ajax" id="ip"><?php echo $json_array['ip']; ?></span>
+			</div>
+		</li>
+		<hr class="fade" />
+		<li>
+			<div class="col2">
+				<label for="location">Location</label>
+				<span class="ajax" id="location"><?php echo $json_array['location']; ?></span>
+			</div>
+			<div class="col2">
+				<label for="type">Type</label>
+				<span class="ajax" id="type"><?php echo $json_array['type']; ?></span>
+			</div>
+		</li>
+		<li>
+			<div class="col4">
+				<label for="time">Time</label>
+				<span class="ajax" id="time"><?php echo $json_array['time']; ?></span>
+			</div>
+			<div class="col4">
+				<label for="date">Date</label>
+				<span class="ajax" id="date"><?php echo $json_array['date']; ?></span>
+			</div>
+			<div class="col4">
+				<label for="batt">Battery</label>
+				<span class="ajax" id="batt"><?php echo $json_array['batt']; ?></span>
+			</div>
+			<div class="col4 omega">
+				<label for="rssi">RSSI</label>
+				<span class="ajax" id="rssi"><?php echo $json_array['rssi']; ?></span>
+			</div>
+		</li>
+		<li>
+			<div class="col4">
+				<label for="zone">Zone</label>
+				<span class="ajax" id="zone"><?php echo $json_array['zone']; ?></span>
+			</div>
+			<div class="col4">
+				<label for="adc_reading">ADC Reading</label>
+				<span class="ajax" id="adc_reading"><?php echo $json_array['adc_reading']; ?></span>
+			</div>
+			<div class="col4">
+				<label for="adc_trigger">ADC Trigger</label>
+				<span class="ajax" id="adc_trigger"><?php echo $json_array['adc_trigger']; ?></span>
+			</div>
+			<div class="col4 omega">
+				<label for="actives">Total activations</label>
+				<span class="ajax" id="actives"><?php echo $json_array['actives']; ?> </span>
+			</div>
+
+		</li>
+		<hr class="fade" />
+		<li>
+			<div class="col8">
+				<label for="gpio0">GPIO 0</label>
+				<span class="ajax" id="gpio0"><?php echo $json_array['gpio0']; ?></span>
+			</div>
+			<div class="col8">
+				<label for="gpio1">GPIO 1</label>
+				<span class="ajax" id="gpio1"><?php echo $json_array['gpio1']; ?></span>
+			</div>
+			<div class="col8">
+				<label for="gpio2">GPIO 2</label>
+				<span class="ajax" id="gpio2"><?php echo $json_array['gpio2']; ?></span>
+			</div>
+			<div class="col8">
+				<label for="gpio3">GPIO 3</label>
+				<span class="ajax" id="gpio3"><?php echo $json_array['gpio3']; ?></span>
+			</div>
+			<div class="col8">
+				<label for="gpio4">GPIO 4</label>
+				<span class="ajax" id="gpio4"><?php echo $json_array['gpio4']; ?></span>
+			</div>
+			<div class="col8">
+				<label for="gpio5">GPIO 5</label>
+				<span class="ajax" id="gpio5"><?php echo $json_array['gpio5']; ?></span>
+			</div>
+			<div class="col8">
+				<label for="gpio9">GPIO 9</label>
+				<span class="ajax" id="gpio9"><?php echo $json_array['gpio9']; ?></span>
+			</div>
+		</li>
+		<li>
+			<div class="col8">
+				<label for="gpio10">GPIO 10</label>
+				<span class="ajax" id="gpio10"><?php echo $json_array['gpio10']; ?></span>
+			</div>
+			<div class="col8">
+				<label for="gpio12">GPIO 12</label>
+				<span class="ajax" id="gpio12"><?php echo $json_array['gpio12']; ?></span>
+			</div>
+			<div class="col8">
+				<label for="gpio13">GPIO 13</label>
+				<span class="ajax" id="gpio13"><?php echo $json_array['gpio13']; ?></span>
+			</div>
+			<div class="col8">
+				<label for="gpio14">GPIO 14</label>
+				<span class="ajax" id="gpio14"><?php echo $json_array['gpio14']; ?></span>
+			</div>
+			<div class="col8">
+				<label for="gpio15">GPIO 15</label>
+				<span class="ajax" id="gpio15"><?php echo $json_array['gpio15']; ?></span>
+			</div>
+			<div class="col8">
+				<label for="gpio16">GPIO 16:</label>
+				<span class="ajax" id="gpio16"><?php echo $json_array['gpio16']; ?></span>
+			</div>
+			<div class="col8">
+				<label for="adc">ADC</label>
+				<span class="ajax" id="adc"><?php echo $json_array['adc']; ?></span>
+			</div>
+		</li>
+	<ul>
 </div>
+</div>
+

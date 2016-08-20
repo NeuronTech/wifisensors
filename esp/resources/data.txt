@@ -1,0 +1,10 @@
+Images are designed by me or found on opersource sites...
+
+Sites:
+Hackaday: https://hackaday.io/projects/hacker/31514
+Git: https://github.com/NeuronTech/ESP8266-Dev-Board
+My phpBB Dev Site: http://www.phpbbireland.com/kiss2/portal.php
+
+Michael O'Toole
+47 Garryowen Road,
+Dublin 10.

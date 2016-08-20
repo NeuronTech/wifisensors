@@ -1,5 +1,4 @@
 <?php
-
 /**
 *
 * @package ESP8266 Web Server
@@ -16,34 +15,39 @@ define('IN_CODE', true);
 
 $root_path = (defined('ROOT_PATH')) ? ROOT_PATH : './';
 $phpEx = substr(strrchr(__FILE__, '.'), 1);
+
 include($root_path . 'common.' . $phpEx);
 include($root_path . 'includes/functions_main.' . $phpEx);
 include($root_path . 'includes/functions.' . $phpEx);
 
-$action = request_var('action', '');
+$auth = $_SESSION['auth'];
+$user = $_SESSION['user'];
 
-if ($action == 'submit')
+//echo 'auth = [' . $auth . ']';
+//echo 'user = [' . $user . ']';
+
+if (isset($auth) && $auth == 1)
 {
-	$arr = array(
-		'esp_id'			=> request_var('esp', 0),
-		'esp_chan'			=> request_var('chan', 0),
-		'esp_zone'			=> request_var('zone', 0),
-		'esp_location'		=> request_var('location', ''),
-		'esp_rx_level'		=> request_var('level', 0),
-		'esp_batt'			=> request_var('batt', ''),
-		'esp_actives'		=> request_var('actives', 0),
-		'esp_rx_treshold'	=> request_var('tresh', ''),
-	);
-	save_data($arr);
-	meta_refresh(0, 'index.php?esp_id=' . request_var('esp', 0));
+	//echo '<br />' . $_SESSION['user'];// var_dump($_SESSION['user']);
+	//echo '<br />' . $_SESSION['auth'];// var_dump($_SESSION['auth']);
+
+	include('header.html');
+	include('left_blocks.html');
+	include('section_index.html');
+	include('footer.html');
 }
 else
 {
-	$id = request_var('esp_id', 0);
-	$json_array = get_data($id);
+	$submit = request_var('submit', '');
+	if ($submit)
+	{
+		$user = request_var('user', '');
+		$pass = request_var('pass', '');
+		check_login($user, $pass);
+	}
+	else
+	{
+		header('Location: login.php');
+	}
 }
 
-include('header.html');
-include('left_blocks.html');
-include('section_form.html');
-include('footer.html');

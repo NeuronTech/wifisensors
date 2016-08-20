@@ -3,9 +3,8 @@
 	$hostname = "localhost";
 	$username = "root";
 	$password = "";
-	$database = "esp";
+	$database = "esp-server";
 
 	@define('DEBUG', true);
 	@define ('STRIP', true);
-
 ?>

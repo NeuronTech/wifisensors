@@ -1,2 +1,43 @@
-ErrorDocument 404 /404.php
-ErrorDocument 500 /500.php
+ErrorDocument 404 http://192.168.1.1/404.php
+ErrorDocument 500 http://192.168.1.1/500.php
+
+<IfModule mod_version.c>
+	<IfVersion < 2.4>
+		<Files "config.php">
+			Order Allow,Deny
+			Deny from All
+		</Files>
+		<Files "common.php">
+			Order Allow,Deny
+			Deny from All
+		</Files>
+	</IfVersion>
+	<IfVersion >= 2.4>
+		<Files "config.php">
+			Require all denied
+		</Files>
+		<Files "common.php">
+			Require all denied
+		</Files>
+	</IfVersion>
+</IfModule>
+<IfModule !mod_version.c>
+	<IfModule !mod_authz_core.c>
+		<Files "config.php">
+			Order Allow,Deny
+			Deny from All
+		</Files>
+		<Files "common.php">
+			Order Allow,Deny
+			Deny from All
+		</Files>
+	</IfModule>
+	<IfModule mod_authz_core.c>
+		<Files "config.php">
+			Require all denied
+		</Files>
+		<Files "common.php">
+			Require all denied
+		</Files>
+	</IfModule>
+</IfModule>

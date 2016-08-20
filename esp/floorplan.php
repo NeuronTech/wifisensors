@@ -28,7 +28,7 @@ if (!$data)
 	$data .= " Copyright Mike O'Toole 13062015 ";
 }
 
-echo '<link rel="stylesheet" type="text/css" href="info/style.css" />';
+echo '<link rel="stylesheet" type="text/css" href="resources/style.css" />';
 
 include('header.html');
 include('left_blocks.html');

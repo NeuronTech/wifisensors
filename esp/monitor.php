@@ -1,4 +1,4 @@
-<script type='text/javascript' src='info/jquery.js' charset='utf-8'></script>
+<script type='text/javascript' src='resources/jquery.js' charset='utf-8'></script>
 <script type="text/javascript">
 function displayLiveData()
 {
@@ -8,16 +8,53 @@ function displayLiveData()
 	$.getJSON('includes/getjsondata.php?datatype=full&' + currentTime.getTime(), function(data)
 	{
 		var items = [];
-
 		$.each(data, function(key, val)
 		{
+			//alert(document.getElementById("id").innerHTML = val);
+
 			switch(key)
 			{
-				case "esp":
-				 document.getElementById("esp").innerHTML = val;
+				case "id":
+				 document.getElementById("id").innerHTML = val;
 				break;
-				case "chan":
-				 document.getElementById("chan").innerHTML = val;
+				case "gpio0":
+				 document.getElementById("gpio0").innerHTML = val;
+				break;
+				case "gpio1":
+				 document.getElementById("gpio1").innerHTML = val;
+				break;
+				case "gpio2":
+				 document.getElementById("gpio2").innerHTML = val;
+				break;
+				case "gpio3":
+				 document.getElementById("gpio3").innerHTML = val;
+				break;
+				case "gpio4":
+				 document.getElementById("gpio4").innerHTML = val;
+				break;
+				case "gpio":
+				 document.getElementById("gpio5").innerHTML = val;
+				break;
+				case "gpio9*":
+				 document.getElementById("gpio9").innerHTML = val;
+				break;
+				case "gpio10":
+				 document.getElementById("gpio10").innerHTML = val;
+				break;
+				case "gpio12":
+				 document.getElementById("gpio12").innerHTML = val;
+				break;
+				case "gpio13":
+				 document.getElementById("gpio13").innerHTML = val;
+				break;
+				case "gpio14":
+				 document.getElementById("gpio14").innerHTML = val;
+				break;
+				case "gpio15":
+				 document.getElementById("gpio15").innerHTML = val;
+				break;
+				case "gpio16":
+				 document.getElementById("gpio16").innerHTML = val;
 				break;
 				case "zone":
 				 document.getElementById("zone").innerHTML = val;
@@ -28,8 +65,17 @@ function displayLiveData()
 				case "date":
 				 document.getElementById("date").innerHTML = val;
 				break;
-				case "level":
-				 document.getElementById("level").innerHTML = val;
+				case "rssi":
+				 document.getElementById("rssi").innerHTML = val;
+				break;
+				case "adc":
+				 document.getElementById("adc").innerHTML = val;
+				break;
+				case "adc_reading":
+				 document.getElementById("adc_reading").innerHTML = val;
+				break;
+				case "adc_trigger":
+				 document.getElementById("adc_trigger").innerHTML = val;
 				break;
 				case "batt":
 				 document.getElementById("batt").innerHTML = val;
@@ -45,7 +91,6 @@ function displayLiveData()
 				break;
 			}
 		});
-
 	});
 }
 onload = function ()
@@ -76,9 +121,15 @@ include($root_path . 'common.' . $phpEx);
 include($root_path . 'includes/functions_main.' . $phpEx);
 include($root_path . 'includes/functions.' . $phpEx);
 
+if (!$auth)
+{
+	header('Location: login.php');
+	exit;
+}
+
 
 $data = get_last_active();
-$json_array = get_data($data['esp_id']);
+$json_array = get_data($data['id']);
 
 include('header.html');
 include('left_blocks.html');

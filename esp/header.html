@@ -1,39 +1,48 @@
 <!doctype html>
 <html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <meta name="Generator" content="EditPlus®">
-  <meta name="Author" content="">
-  <meta name="Keywords" content="">
-  <meta name="Description" content="">
-  <title>ESP Web Server</title>
- </head>
- <body>
-<script type='text/javascript' src='info/jquery.js' charset='utf-8'></script>
-<script type='text/javascript' src='info/js.js' charset='utf-8'></script>
-<link rel="stylesheet" type="text/css" href="info/style.css" />
-<div id="dvLoading"></div>
-<div class="header">
-	<div class="logo"></div>
-	<div class="header_body">
-		<h1><a class="white" href="index.php">ESP8266 Web Server</a></h1>
-	</div>
-	<div class="header_menu">
-			<ul class="ht">
-			  <li class="monitor"><a href="./monitor.php" title="Monitor"><span></span>Monitor</a></li>
-			  <li class="reports"><a href="./reports.php" title="Reports"><span></span>Reports</a></li>
-			  <li class="search"><a href="./search.php" title="View the advanced search options"><span></span>Search</a></li>
-			  <li class="contrib"><a href="./contrib.php" title="ESP8266 Local Web Support"><span></span>Contribute</a></li>
-			  <!--
-			  <li class="forum"><a href="./index.php" title="Support"><span></span>Support</a></li>
-			  <li class="download"><a href="./download.php" title="Download"><span></span>Download</a></li>
-			  -->
-			  <li class="logout"><a href="./ucp.php?mode=logout&amp;sid=$id" title="Logout [ Michaelo ]"><span></span>Logout</a></li>
-			</ul>
-	</div>
-</div>
+<head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
 
-<div id="wrap">
-	<div id="p_header_"><!-- PUT HEADER BLOCKS HERE --></div>
+
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+
+<title>ESP Web Server</title>
+</head>
+
+<body>
+	<script type='text/javascript' src='resources/jquery.js' charset='utf-8'></script>
+	<script type='text/javascript' src='resources/js.js' charset='utf-8'></script>
+	<link rel="stylesheet" type="text/css" href="resources/style.css" />
+	<div id="dvLoading"></div>
+	<div class="header">
+		<div class="logo"></div>
+		<div class="header_body">
+			<h1><a class="white" href="index.php">ESP8266 Web Server</a></h1>
+		</div>
+		<div class="header_menu">
+			<ul class="ht">
+			  <li class="monitor">		<a href="./monitor.php" title="Monitor"><span></span>Monitor</a></li>
+			  <li class="reports">		<a href="./reports.php" title="Reports"><span></span>Reports</a></li>
+			  <li class="control">		<a href="./control.php" title="Control"><span></span>GPIO's</a></li>
+			  <li class="search">		<a href="./search.php" title="View the advanced search options"><span></span>Search</a></li>
+			  <li class="add_device">	<a href="./add_device.php" title="Add an ESP8266 Device"><span></span>Add Device</a></li>
+			  <?php if($auth) { ?>
+			  <li class="logout">		<a href="./logout.php?mode=logout" title="Logout"><span></span>Logout</a></li>
+			  <?php } else { ?>
+			  <li class="login">		<a href="./login.php?mode=login" title="Login"><span></span>Login</a></li>
+			  <?php } ?>
+			</ul>
+		</div>
+	</div><!-- header -->
+	<div id="gutter">
+	<div id="wrap">
+		<div id="p_header_"><!-- PUT HEADER BLOCKS HERE --></div>
 		<div id="p_container_">
 			<div id="p_row_">
+
+

@@ -8,6 +8,6 @@ Note, passwords are stored as plain text, will encrypted these later.
 
 ***
 
-[Link to Project](https://hackaday.io/project/3110-neuron-tech)
+[Link to Project](https://hackaday.io/project/7186-esp-8266-web-server)
 
 [Link to ESP8266 Forum](http://www.esp8266.com/index.php)

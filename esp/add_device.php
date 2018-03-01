@@ -57,12 +57,7 @@ if ($action == 'submit')
 		'esp_adc'			=> request_var('adc', 0),
 		'esp_acp_read'		=> request_var('adc_reading', ''),
 		'esp_acp_value'		=> request_var('adc_trigger', ''),
-
-
-
 	);
-
-
 	save_data($arr);
 	meta_refresh(0, 'edit.php?esp_id=' . $esp);
 }

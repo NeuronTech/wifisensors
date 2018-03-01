@@ -12,9 +12,27 @@
 *
 ***/
 
-jQuery(window).load(function(){
-	jQuery('#dvLoading').fadeOut(1500);
+
+/*
+jQuery(document).load(function(){
+	jQuery('#dvLoading').fadeOut(1000);
 });
+*/
+
+
+
+$(document).ready(function() {
+   window.setTimeout("fadeDiv();", 800);
+ }
+)
+
+function fadeDiv() {
+   $("#dvLoading").fadeOut('slow');
+}
+
+
+
+
 
 function update_form()
 {

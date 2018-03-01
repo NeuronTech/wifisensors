@@ -99,8 +99,8 @@
 	</div>
 </form>
 
-title="If supported by this module" 
-title="Not used in this module" 
+title="If supported by this module"
+title="Not used in this module"
 
 			<!--
 			<dl>

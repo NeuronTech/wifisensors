@@ -1,0 +1,53 @@
+http://www.esp8266.com/viewtopic.php?f=11&t=4458&p=25735#p25735
+
+
+
+#include <ESP8266WiFi.h>
+String apiKey = "<your_api_key>";  // your thingspeak API KEY
+const char* ssid = "<your_router_SSID>";  // your routers SSID
+const char* password = ""<your_router_password>";  //your routers PASSWORD
+const char* server = "api.thingspeak.com"; // thingspeak server
+int holdPin = 0; // defines GPIO 0 as the hold pin (will hold CH_PD high untill we power down).
+int pirPin = 2;  // defines GPIO 2 as the PIR read pin (reads the state of the PIR output).
+int pir = 1;  // sets the PIR record (pir) to 1 (it must have been we woke up).
+WiFiClient client;  // starts a WiFi client.
+
+  void setup() {
+  pinMode(holdPin, OUTPUT);  // sets GPIO 0 to output
+  digitalWrite(holdPin, HIGH);  // sets GPIO 0 to high (this holds CH_PD high even if the PIR output goes low)
+  pinMode(pirPin, INPUT);  // sets GPIO 2 to an input so we can read the PIR output state
+  WiFi.begin(ssid, password);  // starts WiFi & login
+  while (WiFi.status() != WL_CONNECTED) {  // loops untill WiFi is connected
+    delay(500);
+  }}
+ 
+ void loop() {
+    if (client.connect(server,80)) {  // connects to thingspeak & sends the value of (pir)
+        String postStr = apiKey;
+               postStr +="&field1=";
+               postStr += String(pir);
+               postStr += "\r\n\r\n"; 
+         client.print("POST /update HTTP/1.1\n");
+         client.print("Host: api.thingspeak.com\n");
+         client.print("Connection: close\n");
+         client.print("X-THINGSPEAKAPIKEY: "+apiKey+"\n");
+         client.print("Content-Type: application/x-www-form-urlencoded\n");
+         client.print("Content-Length: ");
+         client.print(postStr.length());
+         client.print("\n\n");
+         client.print(postStr);
+      }
+    if((pir) == 0){  // if (pir) == 0, which its not first time through as we set it to "1" above
+      client.stop();  // close WiFi client
+      delay(1000);  // wait for client to close
+      digitalWrite(holdPin, LOW);  // set GPIO 0 low this takes CH_PD & powers down the ESP
+    }
+        else {  // if (pir) == 0 is not true
+          while(digitalRead(pirPin) == 1){  // read GPIO 2, while GPIO 2 = 1 is true, wait (delay below) & read again, when GPIO 2 = 1 is false skip delay & move on out of "while loop"
+             delay(500);
+          }
+                 pir = 0;  // set the value of (pir) to 0
+                 delay(20000);  // wait 20 sec, stopps updating thingspeak to fast (min 15 sec) & acts as a debounce for the PIR.
+// end of void loop, returns to start loop again at void loop
+ 
+   }}

@@ -1,0 +1,88 @@
+<?php
+	$ip = request_var('ip', '');
+	if (!$ip)
+	{
+		$arrays = get_ips();
+?>
+
+<h4 style="margin:3px; margin-bottom:10px;">Select Server IP</h4>
+<div class="xbox" style="margin:0;">
+	<table class="ttable">
+		<tr>
+			<th style="text-align:center">ID</th>
+			<th style="text-align:center">IP</th>
+			<th class="editicon"><img src="./images/icon_edit.gif"></th>
+		</tr>
+		<?php foreach($arrays as $array) { ?>
+		<tr class="server">
+			<td style="text-align:left;"><?php echo $array['id']; ?></td>
+			<td style="text-align:right;"><?php echo $array['ip']; ?></td>
+			<td class="editicon">
+				<a title="Click to Edit Sensor Details" href="control.php?ip=<?php echo $array['ip']; ?>">
+					<img src="./images/icon_edit.gif">
+				</a>
+			</td>
+		</tr>
+		<?php } ?>
+	</table>
+</div>
+
+<?php
+	}
+	if ($ip)
+	{
+?>
+
+
+<script type="text/javascript">
+	function setgpio(gp, st, ip)
+	{
+		var args = ip + '/' + 'gpio=' + gp + '&state=' + st;
+		var win = window.open("http://" + args , 'ESP', 'height=100,width=250');
+		setInterval(function() { wait(win); }, 1500);
+	}
+	function getgpios(ip)
+	{
+		var args = ip + '/';
+		var win = window.open("http://" + atgs, 'ESP', 'height=100,width=250');
+		setInterval(function() { wait(win); }, 2000);
+	}
+
+	function wait(win)
+	{
+		win.close();
+	}
+</script>
+
+
+<form id="esp_control" name="esp_control" method="post" action="control.php?action=submit">
+	<h3 style="margin: 3px;">Activate Devices</h3>
+	<div>
+		<fieldset>
+			<legend>Data</legend>
+			<dl>
+				<dt><label for="gpio0">GPIO: 0</label></dt>
+				<dd>
+					<label><input type="radio" name="gpio0" value="1" onchange="setgpio(0,1, '<?php echo $ip ?>' )" /> ON</label>
+					<label><input type="radio" name="gpio0" value="0" onchange="setgpio(0,0, '<?php echo $ip ?>' )" /> OFF</label>
+					<label><input type="radio" name="gpio0" value="2" checked="checked" /> Unknown</label>
+				</dd>
+			</dl>
+			<dl>
+				<dt><label for="gpio2">GPIO: 2</label></dt>
+				<dd>
+					<label><input type="radio" name="gpio2" value="1" onchange="setgpio(2,1, '<?php echo $ip ?>' )" /> ON</label>
+					<label><input type="radio" name="gpio2" value="0" onchange="setgpio(2,0, '<?php echo $ip ?>' )" /> OFF</label>
+					<label><input type="radio" name="gpio2" value="0" checked="checked" /> Unknown</label>
+				</dd>
+			</dl>
+		</fieldset>
+		<fieldset class="submit-buttons">
+			<input class="button1" type="submit" id="submit" name="submit" value="Retrieve current state of GPIO pins" onclick="getgpios('<?php echo $ip ?>' )" />&nbsp;
+		</fieldset>
+	</div>
+</form>
+
+<?php
+	}
+?>

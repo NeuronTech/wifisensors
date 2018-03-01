@@ -1,0 +1,233 @@
+
+<form id="esp_add" name="esp_add" method="post" action="add_device.php?action=submit">
+	<h3 style="margin: 3px;">Add Device...</h3>
+	<div class="formbox full" >
+		<fieldset style="margin: 4px;">
+			<legend>Info</legend>
+			<dl>
+				<dt><label for="type">Type:</label></dt>
+				<label><input type="radio" name="type" value="0" checked="checked" onchange="setgpio(0,0)" /> Client</label>
+				<label><input type="radio" name="type" value="0" onchange="setgpio(0,0)" /> Server</label>
+			</dl>
+			<dl>
+				<dt><label for="ip">IP:</label></dt>
+				<dd><input class="post" size="15" maxlength="15" name="esp_ip" value="" type="text"></dd>
+			</dl>
+		</fieldset>
+<!--
+		<fieldset style="float:left; margin: 4px; min-width:47%;">
+			<legend>GPIO</legend>
+			<dl>
+				<dt><label for="gpio0">GPIO 00:</label></dt>
+				<label><input type="radio" name="gpio0" value="0" onchange="setgpio(0,0)" /> Available</label>
+				<label><input type="radio" name="gpio0" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio1">GPIO 01:</label></dt>
+				<label><input type="radio" name="gpio1" value="1" onchange="setgpio(0,1)" /> Available</label>
+				<label><input type="radio" name="gpio1" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio2">GPIO 02:</label></dt>
+				<label><input type="radio" name="gpio2" value="1" onchange="setgpio(0,2)" /> Available</label>
+				<label><input type="radio" name="gpio2" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio3">GPIO 03:</label></dt>
+				<label><input type="radio" name="gpio3" value="1" onchange="setgpio(0,3)" /> Available</label>
+				<label><input type="radio" name="gpio3" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio4">GPIO 04:</label></dt>
+				<label><input type="radio" name="gpio4" value="1" onchange="setgpio(0,4)" /> Available</label>
+				<label><input type="radio" name="gpio4" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio5">GPIO 05:</label></dt>
+				<label><input type="radio" name="gpio5" value="1" onchange="setgpio(0,5)" /> Available</label>
+				<label><input type="radio" name="gpio5" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio6">GPIO 06:</label></dt>
+				<label><input type="radio" name="gpio6" value="1" onchange="setgpio(0,6)" /> Available</label>
+				<label><input type="radio" name="gpio6" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio7">GPIO 07:</label></dt>
+				<label><input type="radio" name="gpio7" value="1" onchange="setgpio(0,7)" /> Available</label>
+				<label><input type="radio" name="gpio7" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio5">GPIO 08:</label></dt>
+				<label><input type="radio" name="gpio8" value="1" onchange="setgpio(0,8)" /> Available</label>
+				<label><input type="radio" name="gpio8" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio9">GPIO 09:</label></dt>
+				<label><input type="radio" name="gpio9" value="1" onchange="setgpio(0,9)" /> Available</label>
+				<label><input type="radio" name="gpio9" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio10">GPIO 10:</label></dt>
+				<label><input type="radio" name="gpio10" value="1" onchange="setgpio(0,10)" /> Available</label>
+				<label><input type="radio" name="gpio10 value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio11">GPIO 11:</label></dt>
+				<label><input type="radio" name="gpio11" value="1" onchange="setgpio(0,11)" /> Available</label>
+				<label><input type="radio" name="gpio11 value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio12">GPIO 12:</label></dt>
+				<label><input type="radio" name="gpio12" value="1" onchange="setgpio(0,12)" /> Available</label>
+				<label><input type="radio" name="gpio12" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio13">GPIO 13:</label></dt>
+				<label><input type="radio" name="gpio13" value="1" onchange="setgpio(0,13)" /> Available</label>
+				<label><input type="radio" name="gpio13" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio14">GPIO 14:</label></dt>
+				<label><input type="radio" name="gpio14" value="1" onchange="setgpio(0,14)" /> Available</label>
+				<label><input type="radio" name="gpio14" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio15">GPIO 15:</label></dt>
+				<label><input type="radio" name="gpio15" value="1" onchange="setgpio(0,15)" /> Available</label>
+				<label><input type="radio" name="gpio15" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio16">GPIO 16:</label></dt>
+				<label><input type="radio" name="gpio16" value="1" onchange="setgpio(0,16)" /> Available</label>
+				<label><input type="radio" name="gpio16" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio17">GPIO 17:</label></dt>
+				<label><input type="radio" name="gpio17" value="1" onchange="setgpio(0,17)" /> Available</label>
+				<label><input type="radio" name="gpio17" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio18">GPIO 18:</label></dt>
+				<label><input type="radio" name="gpio18" value="1" onchange="setgpio(0,18)" /> Available</label>
+				<label><input type="radio" name="gpio18" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio19">GPIO 19:</label></dt>
+				<label><input type="radio" name="gpio19" value="1" onchange="setgpio(0,19)" /> Available</label>
+				<label><input type="radio" name="gpio19" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+		</fieldset>
+
+		<fieldset style="float:left; margin: 4px; min-width:47%;">
+			<legend>ADC</legend>
+			<dl>
+				<dt><label for="adc10">ADC1 0:</label></dt>
+				<label><input type="radio" name="adc10" value="1" onchange="setadc(0,10)" /> Available</label>
+				<label><input type="radio" name="adc10" value="0" checked="checked" onchange="setadc(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="adc11">ADC1 1:</label></dt>
+				<label></label>
+				<label><input type="radio" name="adc11" value="0" checked="checked" onchange="setadc(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="adc12">ADC1 2:</label></dt>
+				<label></label>
+				<label><input type="radio" name="adc12" value="0" checked="checked" onchange="setadc(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="adc13">ADC1 3:</label></dt>
+				<label><input type="radio" name="adc13" value="1" onchange="setadc(0,13)" /> Available</label>
+				<label><input type="radio" name="adc13" value="0" checked="checked" onchange="setadc(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="adc14">ADC1 4:</label></dt>
+				<label><input type="radio" name="adc14" value="1" onchange="setadc(0,14)" /> Available</label>
+				<label><input type="radio" name="adc14" value="0" checked="checked" onchange="setadc(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="adc15">ADC1 5:</label></dt>
+				<label><input type="radio" name="adc15" value="1" onchange="setadc(0,15)" /> Available</label>
+				<label><input type="radio" name="adc15" value="0" checked="checked" onchange="setadc(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="adc16">ADC1 6:</label></dt>
+				<label><input type="radio" name="adc16" value="1" onchange="setadc(0,16)" /> Available</label>
+				<label><input type="radio" name="adc16" value="0" checked="checked" onchange="setadc(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="adc17">ADC1 7:</label></dt>
+				<label><input type="radio" name="adc17" value="1" onchange="setadc(0,17)" /> Available</label>
+				<label><input type="radio" name="adc17" value="0" checked="checked" onchange="setadc(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="adc18">ADC1 8:</label></dt>
+				<label></label>
+				<label><input type="radio" name="adc18" value="0" checked="checked" onchange="setadc(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="adc19">ADC1 9:</label></dt>
+				<label></label>
+				<label><input type="radio" name="adc19" value="0" checked="checked" onchange="setadc(0,0)" /> Not Available</label>
+			</dl>
+
+			<dl>
+				<dt><label for="adc20">ADC2 0:</label></dt>
+				<label><input type="radio" name="adc20" value="1" onchange="setadc(0,20)" /> Available</label>
+				<label><input type="radio" name="adc20" value="0" checked="checked" onchange="setadc(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="adc21">ADC2 1:</label></dt>
+				<label><input type="radio" name="adc21" value="1" onchange="setadc(0,21)" /> Available</label>
+				<label><input type="radio" name="adc21" value="0" checked="checked" onchange="setadc(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="adc22">ADC2 2:</label></dt>
+				<label><input type="radio" name="adc4" value="1" onchange="setadc(0,22)" /> Available</label>
+				<label><input type="radio" name="adc4" value="0" checked="checked" onchange="setadc(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="adc23">ADC2 3:</label></dt>
+				<label><input type="radio" name="adc23" value="1" onchange="setadc(0,23)" /> Available</label>
+				<label><input type="radio" name="adc23" value="0" checked="checked" onchange="setadc(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="adc24">ADC2 4:</label></dt>
+				<label><input type="radio" name="adc24" value="1" onchange="setadc(0,24)" /> Available</label>
+				<label><input type="radio" name="adc24" value="0" checked="checked" onchange="setadc(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="adc25">ADC2 5:</label></dt>
+				<label><input type="radio" name="adc25" value="1" onchange="setadc(0,25)" /> Available</label>
+				<label><input type="radio" name="adc25" value="0" checked="checked" onchange="setadc(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="adc26">ADC2 6:</label></dt>
+				<label><input type="radio" name="adc26" value="1" onchange="setadc(0,26)" /> Available</label>
+				<label><input type="radio" name="adc26" value="0" checked="checked" onchange="setadc(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="adc27">ADC2 7:</label></dt>
+				<label><input type="radio" name="adc27" value="1" onchange="setadc(0,27)" /> Available</label>
+				<label><input type="radio" name="adc27" value="0" checked="checked" onchange="setadc(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="adc28">ADC2 8:</label></dt>
+				<label><input type="radio" name="adc28" value="1" onchange="setadc(0,28)" /> Available</label>
+				<label><input type="radio" name="adc28" value="0" checked="checked" onchange="setadc(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="adc29">ADC2 9:</label></dt>
+				<label><input type="radio" name="adc29" value="1" onchange="setadc(0,29)" /> Available</label>
+				<label><input type="radio" name="adc29" value="0" checked="checked" onchange="setadc(0,0)" /> Not Available</label>
+			</dl>
+		</fieldset>
+-->
+		<fieldset class="submit-buttons">
+			<input class="button1" type="submit" id="submit" name="submit" value="Submit" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="Reset" />&nbsp;
+		</fieldset>
+
+	</div>
+</form>

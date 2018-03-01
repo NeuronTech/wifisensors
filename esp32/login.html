@@ -1,0 +1,49 @@
+<?php
+
+/**
+*
+* @package ESP8266 Web Server
+* @version $Id$
+* @author  Michael O'Toole - aka michaelo
+* @begin   Saturday, Jan 22, 2015
+* @copyright (c) 2015 phpbbireland
+* @home    http://www.phpbbireland.com
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+*
+*/
+
+define('IN_CODE', true);
+include('login.php');
+
+if(isset($_SESSION['login_user']))
+{
+	header("location: index.php");
+}
+include('header.html');
+?>
+
+<link href="resources/login.css" rel="stylesheet" type="text/css">
+
+<?php
+include('left_blocks.html');
+?>
+
+<div class="index_body">
+	<div id="login">
+		<h2>Login Form</h2>
+		<form action="" method="post">
+			<label>UserName :</label>
+			<input id="name" name="username" placeholder="username" type="text">
+			<label>Password :</label>
+			<input id="password" name="password" placeholder="**********" type="password">
+			<input name="submit" type="submit" value=" Login ">
+			<span><?php echo $error; ?></span>
+		</form>
+	</div>
+</div>
+
+
+
+<?php
+include('footer.html');
+?>

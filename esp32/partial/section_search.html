@@ -1,0 +1,234 @@
+<h4 style="margin: 3px;">
+	<span style="float:left; margin-bottom: 10px;">Search... </span>
+	<span style="float:right"><?php echo $json_array['time']; ?> (<?php echo $json_array['date']; ?>)</span>
+</h4>
+<br />
+
+<div class="formbox">
+<div class="dispdata">
+	<form class="formdata" id="search" name="search" method="post" action="edit.php?action=submit">
+	<ul>
+		<li>
+			<div class="col4">
+				<label for="id">ID</label>
+				<input hidden id="id" name="id" class="input" value="<?php echo $json_array['id']; ?>" /><?php echo $json_array['id']; ?>
+			</div>
+			<div class="col4">&nbsp;
+			</div>
+			<div class="col4">&nbsp;
+			</div>
+			<div class="col4">
+				<label for="ip">IP</label>
+				<input type="text" id="ip" name="ip" class="input" value="<?php echo $json_array['ip']; ?>" />
+			</div>
+		</li>
+		<hr class="fade" />
+		<li>
+			<div class="col2">
+				<label for="location">Location</label>
+				<input type="text" id="location" name="location" class="input" value="<?php echo $json_array['location']; ?>" />
+			</div>
+			<div class="col2">
+				<label for="type">Type</label>
+				<input type="text" id="type" name="type" class="input" value="<?php echo $json_array['type']; ?>" />
+			</div>
+		</li>
+		<li>
+			<div class="col4">
+				<label for="time">Time</label>
+				<input type="text" id="time" name="time" class="input" value="<?php echo $json_array['time']; ?>" />
+			</div>
+			<div class="col4">
+				<label for="date">Date</label>
+				<input type="text" id="date" name="date" class="input" value="<?php echo $json_array['date']; ?>" />
+			</div>
+			<div class="col4">
+				<label for="batt">Battery</label>
+				<input type="text" id="batt" name="batt" class="input" value="<?php echo $json_array['batt']; ?>" />
+			</div>
+			<div class="col4 omega">
+				<label for="rssi">RX Signal Level</label>
+				<input type="text" id="rssi" name="rssi" class="input" value="<?php echo $json_array['rssi']; ?>" />
+			</div>
+		</li>
+		<li>
+			<div class="col4">
+				<label for="adc_reading">ADC Reading</label>
+				<input type="text" id="adc_reading" name="adc_reading" class="input" value="<?php echo $json_array['adc_read']; ?>" />
+			</div>
+			<div class="col4">
+				<label for="adc_trig">ADC Trigger Level</label>
+				<input type="text" id="adc_trig" name="adc_trig" class="input" value="<?php echo $json_array['adc_trig']; ?>" />
+			</div>
+			<div class="col4">
+				<label for="actives">Total activations</label>
+				<input type="text" id="actives" name="actives" class="input" value="<?php echo $json_array['actives']; ?>" />
+			</div>
+			<div class="col4 omega">
+				<label for="zone">Zone</label>
+				<input type="text" id="zone" name="zone" class="input" value="<?php echo $json_array['zone']; ?>" />
+			</div>
+		</li>
+		<hr class="fade" />
+		<li>
+			<div class="col8">
+				<label for="gpio0">GPIO 0</label>
+				<input type="text" id="gpio0" name="gpio0" class="input" style="text-align: right;" value="<?php echo $json_array['gpio0']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="gpio1">GPIO 1</label>
+				<input type="text" id="gpio1" name="gpio1" class="input" style="text-align: right;" value="<?php echo $json_array['gpio1']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="gpio2">GPIO 2</label>
+				<input type="text" id="gpio2" name="gpio2" class="input" style="text-align: right;" value="<?php echo $json_array['gpio2']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="gpio3">GPIO 3</label>
+				<input type="text" id="gpio3" name="gpio3" class="input" style="text-align: right;" value="<?php echo $json_array['gpio3']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="gpio4">GPIO 4</label>
+				<input type="text" id="gpio4" name="gpio4" class="input" style="text-align: right;" value="<?php echo $json_array['gpio4']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="gpio5">GPIO 5</label>
+				<input type="text" id="gpio5" name="gpio5" class="input" style="text-align: right;" value="<?php echo $json_array['gpio5']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="gpio6">GPIO 6</label>
+				<input type="text" id="gpio6" name="gpio6" class="input" style="text-align: right;" value="<?php echo $json_array['gpio6']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="gpio7">GPIO 7</label>
+				<input type="text" id="gpio7" name="gpio7" class="input" style="text-align: right;" value="<?php echo $json_array['gpio7']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="gpio8">GPIO 8</label>
+				<input type="text" id="gpio8" name="gpio8" class="input" style="text-align: right;" value="<?php echo $json_array['gpio8']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="gpio9">GPIO 9</label>
+				<input type="text" id="gpio9" name="gpio9" class="input" style="text-align: right;" value="<?php echo $json_array['gpio9']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="gpio10">GPIO 10</label>
+				<input type="text" id="gpio10" name="gpio10" class="input" style="text-align: right;" value="<?php echo $json_array['gpio10']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="gpio11">GPIO 11</label>
+				<input type="text" id="gpio11" name="gpio11" class="input" style="text-align: right;" value="<?php echo $json_array['gpio11']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="gpio12">GPIO 12</label>
+				<input type="text" id="gpio12" name="gpio12" class="input" style="text-align: right;" value="<?php echo $json_array['gpio12']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="gpio13">GPIO 13</label>
+				<input type="text" id="gpio13" name="gpio13" class="input" style="text-align: right;" value="<?php echo $json_array['gpio13']; ?>" />
+			</div>
+		</li>
+		<li>
+			<div class="col8">
+				<label for="gpio14">GPIO 14</label>
+				<input type="text" id="gpio14" name="gpio14" class="input" style="text-align: right;" value="<?php echo $json_array['gpio14']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="gpio15">GPIO 15</label>
+				<input type="text" id="gpio15" name="gpio15" class="input" style="text-align: right;" value="<?php echo $json_array['gpio15']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="gpio16">GPIO 16</label>
+				<input type="text" id="gpio16" name="gpio16" class="input" style="text-align: right;" value="<?php echo $json_array['gpio16']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="gpio17">GPIO 17:</label>
+				<input type="text" id="gpio17" name="gpio17" class="input" style="text-align: right;" value="<?php echo $json_array['gpio17']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="gpio18">GPIO 18:</label>
+				<input type="text" id="gpio18" name="gpio18" class="input" style="text-align: right;" value="<?php echo $json_array['gpio18']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="gpio19">GPIO 19:</label>
+				<input type="text" id="gpio19" name="gpio19" class="input" style="text-align: right;" value="<?php echo $json_array['gpio19']; ?>" />
+			</div>
+		</li>
+		<hr class="fade" />
+		<li>
+			<div class="col8">
+				<label for="ADC10">ADC1 0:</label>
+				<input type="text" id="adc10" name="adc10" class="input" style="text-align: right;" value="<?php echo $json_array['adc10']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="ADC13">ADC1 3:</label>
+				<input type="text" id="adc13" name="adc13" class="input" style="text-align: right;" value="<?php echo $json_array['adc13']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="ADC14">ADC1 4:</label>
+				<input type="text" id="adc14" name="adc14" class="input" style="text-align: right;" value="<?php echo $json_array['adc14']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="ADC15">ADC1 5:</label>
+				<input type="text" id="adc15" name="adc15" class="input" style="text-align: right;" value="<?php echo $json_array['adc15']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="ADC16">ADC1 6:</label>
+				<input type="text" id="adc16" name="adc16" class="input" style="text-align: right;" value="<?php echo $json_array['adc16']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="ADC17">ADC1 7:</label>
+				<input type="text" id="adc17" name="adc17" class="input" style="text-align: right;" value="<?php echo $json_array['adc17']; ?>" />
+			</div>
+		</li>
+		<li>
+			<div class="col8">
+				<label for="ADC20">ADC2 0:</label>
+				<input type="text" id="adc20" name="adc20" class="input" style="text-align: right;" value="<?php echo $json_array['adc20']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="ADC21">ADC2 1:</label>
+				<input type="text" id="adc21" name="adc21" class="input" style="text-align: right;" value="<?php echo $json_array['adc21']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="ADC22">ADC2 2:</label>
+				<input type="text" id="adc22" name="adc22" class="input" style="text-align: right;" value="<?php echo $json_array['adc22']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="ADC23">ADC2 3:</label>
+				<input type="text" id="adc23" name="adc23" class="input" style="text-align: right;" value="<?php echo $json_array['adc23']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="ADC24">ADC2 4:</label>
+				<input type="text" id="adc24" name="adc24" class="input" style="text-align: right;" value="<?php echo $json_array['adc24']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="ADC25">ADC2 5:</label>
+				<input type="text" id="adc25" name="adc25" class="input" style="text-align: right;" value="<?php echo $json_array['adc25']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="ADC26">ADC2 6:</label>
+				<input type="text" id="adc26" name="adc26" class="input" style="text-align: right;" value="<?php echo $json_array['adc26']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="ADC27">ADC2 7:</label>
+				<input type="text" id="adc27" name="adc27" class="input" style="text-align: right;" value="<?php echo $json_array['adc27']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="ADC28">ADC2 8:</label>
+				<input type="text" id="adc28" name="adc28" class="input" style="text-align: right;" value="<?php echo $json_array['adc28']; ?>" />
+			</div>
+			<div class="col8">
+				<label for="ADC29">ADC2 9:</label>
+				<input type="text" id="adc29" name="adc29" class="input" style="text-align: right;" value="<?php echo $json_array['adc29']; ?>" />
+			</div>
+		</li>
+	</ul>
+	<fieldset class="submit-buttons"><br />
+		<input hidden class="post"  id="mode" name="mode" value="save" type="text">
+		<input class="button1" type="submit" id="submit" name="submit" value="Submit" />&nbsp;
+		<input class="button2" type="reset" id="reset" name="reset" value="Reset" />&nbsp;
+	</fieldset>
+	</form>
+</div>
+</div>

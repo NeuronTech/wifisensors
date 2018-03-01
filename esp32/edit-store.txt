@@ -1,0 +1,1038 @@
+<form id="esp_add" name="esp" method="post" action="add_device.php?action=submit">
+	<h3 style="margin: 3px;">Here you can edit the current sensor data...</h3>
+	<div>
+		<fieldset>
+			<legend>Data</legend>
+			<!--
+			<dl>
+				<dt><label for="esp">ID:</label></dt>
+				<dd><input class="post" size="10" maxlength="4" name="esp" value="" type="text"></dd>
+			</dl>
+			-->
+			<dl>
+				<dt><label for="ip">IP:</label></dt>
+				<dd><input class="post" size="15" maxlength="14" name="ip" value="" type="text"></dd>
+			</dl>
+			<dl>
+				<dt><label for="zone">Zone:</label></dt>
+				<dd><input class="post" size="10" maxlength="4" name="zone" value="" type="text"></dd>
+			</dl>
+			<dl>
+				<dt><label for="chan">Channel:</label></dt>
+				<dd><input class="post" size="10" maxlength="4" name="chan" value="" type="text"></dd>
+			</dl>
+			<!--
+			<dl>
+				<dt><label for="time">Last activity time:</label></dt>
+				<dd><input class="post" size="10" maxlength="10" name="time" value="" type="text"></dd>
+			</dl>
+			<dl>
+				<dt><label for="date">Last activity date:</label></dt>
+				<dd><input class="post" size="10" maxlength="10" name="date" value="" type="text"></dd>
+			</dl>
+			<dl>
+				<dt><label for="level">Sensor Level:</label></dt>
+				<dd><input class="post" size="10" maxlength="4" name="level" value="" type="text"></dd>
+			</dl>
+			-->
+			<dl>
+				<dt><label for="tresh">Trigger Level:</label></dt>
+				<dd><input class="post" size="10" maxlength="4" name="tresh" value="" type="text"></dd>
+			</dl>
+			<!--
+			<dl>
+				<dt><label for="batt">Battery voltage:</label></dt>
+				<dd><input class="post" size="10" maxlength="4" name="batt" value="" type="text"></dd>
+			</dl>
+			<dl>
+				<dt><label for="actives">Total activations:</label></dt>
+				<dd><input class="post" size="10" maxlength="6" name="actives" value="" type="text"></dd>
+			</dl>
+			-->
+			<dl>
+				<dt><label for="location">Location:</label></dt>
+				<dd><input class="post" size="24" maxlength="100" name="location" value="" type="text"></dd>
+			</dl>
+<hr />
+			<dl>
+				<dt><label for="gpio0">GPIO 0:</label></dt>
+				<label><input type="radio" name="gpio0" value="1" title="If not used in this module" onchange="setgpio(0,1)" /> ON</label>
+				<label><input type="radio" name="gpio0" value="0" title="If not used in this module" checked="checked" onchange="setgpio(0,0)" /> OFF</label>
+				<label><input type="radio" name="gpio0" value="2" title="If not used in this module" /> Not Used</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio1">GPIO 1:</label></dt>
+				<label><input type="radio" name="gpio1" value="1" onchange="setgpio(0,1)" /> ON</label>
+				<label><input type="radio" name="gpio1" value="0" checked="checked" onchange="setgpio(0,0)" /> OFF</label>
+				<label><input type="radio" name="gpio1" value="2" title="If not used in this module" /> Not Used</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio2">GPIO 2:</label></dt>
+				<label><input type="radio" name="gpio2" value="1" onchange="setgpio(0,2)" /> ON</label>
+				<label><input type="radio" name="gpio2" value="0" checked="checked" onchange="setgpio(0,0)" /> OFF</label>
+				<label><input type="radio" name="gpio2" value="2" title="If not used in this module"/> Not Used</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio3">GPIO 3:</label></dt>
+				<label><input type="radio" name="gpio3" value="1" onchange="setgpio(0,3)" /> ON</label>
+				<label><input type="radio" name="gpio3" value="0" checked="checked" onchange="setgpio(0,0)" /> OFF</label>
+				<label><input type="radio" name="gpio3" value="2" title="If not used in this module"/> Not Used</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio4">GPIO 4:</label></dt>
+				<label><input type="radio" name="gpio4" value="1" onchange="setgpio(0,4)" /> ON</label>
+				<label><input type="radio" name="gpio4" value="0" checked="checked" onchange="setgpio(0,0)" /> OFF</label>
+				<label><input type="radio" name="gpio4" value="2" title="If not used in this module"/> Not Used</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio5">GPIO 5:</label></dt>
+				<label><input type="radio" name="gpio5" value="1" onchange="setgpio(0,5)" /> ON</label>
+				<label><input type="radio" name="gpio5" value="0" checked="checked" onchange="setgpio(0,0)" /> OFF</label>
+				<label><input type="radio" name="gpio5" value="2" title="If not used in this module"/> Not Used</label>
+			</dl>
+
+		</fieldset>
+		<fieldset class="submit-buttons">
+			<input class="button1" type="submit" id="submit" name="submit" value="Submit" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="Reset" />&nbsp;
+		</fieldset>
+	</div>
+</form>
+
+title="If supported by this module" 
+title="Not used in this module" 
+
+			<!--
+			<dl>
+				<dt><label for="zone">Zone:</label></dt>
+				<dd><input class="post" size="10" maxlength="4" name="zone" value="" type="text"></dd>
+			</dl>
+			<dl>
+				<dt><label for="chan">Channel:</label></dt>
+				<dd><input class="post" size="10" maxlength="4" name="chan" value="" type="text"></dd>
+			</dl>
+			<dl>
+				<dt><label for="tresh">Trigger Level:</label></dt>
+				<dd><input class="post" size="10" maxlength="4" name="tresh" value="" type="text"></dd>
+			</dl>
+			<dl>
+				<dt><label for="location">Location:</label></dt>
+				<dd><input class="post" size="24" maxlength="100" name="location" value="" type="text"></dd>
+			</dl>
+			-->
+
+	var_dump($ip);
+	if ($ip == '')
+	{
+		echo('Please enter an IP');
+	}
+
+
+
+
+
+
+<form id="espcontrol" name="espcontrol" method="post" action="control.php?action=submit">
+	<h3 style="margin: 3px;">Activate Devices</h3>
+	<div>
+		<fieldset>
+			<legend>Data</legend>
+			<dl>
+				<dt><label for="gpio0">GPIO: 0</label></dt>
+				<dd>
+					<label><input type="radio" name="gpio0" value="1" onchange="setgpio(0,1, '<?php echo $ip ?>' )" /> ON</label>
+					<label><input type="radio" name="gpio0" value="0" onchange="setgpio(0,0, '<?php echo $ip ?>' )" /> OFF</label>
+					<label><input type="radio" name="gpio0" value="2" checked="checked" /> Un Known</label>
+				</dd>
+			</dl>
+			<dl>
+				<dt><label for="gpio2">GPIO: 2</label></dt>
+				<dd>
+					<label><input type="radio" name="gpio2" value="1" onchange="setgpio(2,1, '<?php echo $ip ?>' )" /> ON</label>
+					<label><input type="radio" name="gpio2" value="0" onchange="setgpio(2,0, '<?php echo $ip ?>' )" /> OFF</label>
+					<label><input type="radio" name="gpio2" value="0" checked="checked" /> Un Known</label>
+				</dd>
+			</dl>
+		</fieldset>
+		<fieldset class="submit-buttons">
+			<input class="button1" type="submit" id="submit" name="submit" value="Retrieve current state of GPIO pins" onclick="getgpios('<?php echo $ip ?>' )" />&nbsp;
+		</fieldset>
+	</div>
+</form>
+
+
+
+<script type="text/javascript">
+	function setgpio(gp, st, ip)
+	{
+		var args = ip + '/' + 'gpio=' + gp + '&state=' + st;
+		var win = window.open("http://" + args , 'ESP', 'height=100,width=250');
+		setInterval(function() { wait(win); }, 1500);
+	}
+	function getgpios(ip)
+	{
+		var args = 'control.php?ip=' + ip;
+		//var args = ip + '/' + 'gpio=' + ip;
+
+		//alert("http://192.168.1.1/" + args, 'ESP', 'height=100,width=250');
+
+		var win = window.open("http://" + args, 'ESP', 'height=100,width=250');
+		setInterval(function() { wait(win); }, 2000);
+	}
+
+	function wait(win)
+	{
+		win.close();
+	}
+</script>
+
+
+
+<form method="post" action="control.php?ip=192.168.1.8">
+
+
+
+
+
+
+///
+   function popUp(){
+
+    var newWindow = window.open("","Test","width=300,height=300,scrollbars=1,resizable=1")
+
+    //read text from textbox placed in parent window
+    var text = document.form.input.value
+
+    var html = "<html><head></head><body>Hello, <b>"+ text +"</b>."
+    html += "How are you today?</body></html>"
+
+
+    newWindow .document.open()
+    newWindow .document.write(html)
+    newWindow .document.close()
+
+    }
+///
+
+
+/**********************/
+<script type="text/javascript">
+    var ip;
+    function getdata()
+	{
+        ip = document.getElementById('ip').value;
+		document.getElementById('getinfo').action = 'search.php?ip=' + ip;;
+		//document.getElementById('getinfo').action = 'http://' + ip;;
+		getgpios(ip)
+    }
+
+	function getgpios(ip)
+	{
+		var win = window.open("http://" + ip, 'ESP', 'height=100,width=250');
+		win.focus();
+		//var gpio0, gpio1, gpio2, gpio3, gpio4, gpio5, gpio9, gpio10, gpio12, gpio13, gpio14, gpio15;
+		setInterval(function() { wait(win); }, 2000);
+	}
+
+	function wait(win)
+	{
+		win.close();
+	}
+</script>
+
+<?php
+
+/**
+*
+* @package ESP8266 Web Server
+* @version $Id$
+* @author  Michael O'Toole - aka michaelo
+* @begin   Saturday, Jan 22, 2015
+* @copyright (c) 2015 phpbbireland
+* @home    http://www.phpbbireland.com
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+*
+*/
+
+define('IN_CODE', true);
+
+$root_path = (defined('ROOT_PATH')) ? ROOT_PATH : './';
+$phpEx = substr(strrchr(__FILE__, '.'), 1);
+include($root_path . 'common.' . $phpEx);
+include($root_path . 'includes/functions_main.' . $phpEx);
+include($root_path . 'includes/functions.' . $phpEx);
+
+$action = request_var('action', '');
+
+include('header.html');
+include('left_blocks.html');
+
+$gpio0 = request_var('gpio0', 0);
+$gpio1 = request_var('gpio1', 0);
+$gpio2 = request_var('gpio2', 0);
+$gpio3 = request_var('gpio3', 0);
+$gpio4 = request_var('gpio4', 0);
+$gpio5 = request_var('gpio5', 0);
+$gpio9 = request_var('gpio9', 0);
+$gpio10 = request_var('gpio10', 0);
+$gpio12 = request_var('gpio12', 0);
+$gpio13 = request_var('gpio13', 0);
+$gpio14 = request_var('gpio14', 0);
+$gpio15 = request_var('gpio15', 0);
+
+?>
+
+<div class="index_intro">Search for ESP8266 Servers</div>
+<div class="divider"></div>
+
+<div class="index_body">
+If we query an ESP8266 device set up as a Server (using its IP) we can retrieve the current state of the GPIO's and ADC...<br />
+We can then save this information to our database for future use...<br /><br />
+</div>
+
+<div>
+	<form id="getinfo" method="post" action="">
+
+		<fieldset class="fields2">
+			<legend>Enter the IP to retrieve ESP data</legend>
+			<dl>
+				<dt><label for="esp">IP:</label></dt>
+				<dd><input style="border-radius: 5px; width:120px" class="text" type="text" name="ip" id="ip" placeholder="192.168.1.1" size="15" maxlength="15" tabindex="1" onchange="getdata()" /></dd>
+			</dl>
+		</fieldset>
+
+		<fieldset class="submit-buttons">
+			<input class="button1" type="submit" id="submit" name="submit" value="Retrieve Data" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="Reset" />&nbsp;
+		</fieldset>
+
+	</form>
+</div>
+
+
+<form id="esp_add" name="esp" method="post" action="add_device.php?action=submit">
+	<div>
+		<fieldset>
+			<legend>Data</legend>
+			<dl>
+				<dt><label for="gpio0">GPIO 0:</label></dt>
+				<label><input type="radio" name="gpio0" value="0" onchange="setgpio(0,0)" /> Available</label>
+				<label><input type="radio" name="gpio0" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio1">GPIO 1:</label></dt>
+				<label><input type="radio" name="gpio1" value="1" onchange="setgpio(0,1)" /> Available</label>
+				<label><input type="radio" name="gpio1" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio2">GPIO 2:</label></dt>
+				<label><input type="radio" name="gpio2" value="1" onchange="setgpio(0,2)" /> Available</label>
+				<label><input type="radio" name="gpio2" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio3">GPIO 3:</label></dt>
+				<label><input type="radio" name="gpio3" value="1" onchange="setgpio(0,3)" /> Available</label>
+				<label><input type="radio" name="gpio3" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio4">GPIO 4:</label></dt>
+				<label><input type="radio" name="gpio4" value="1" onchange="setgpio(0,4)" /> Available</label>
+				<label><input type="radio" name="gpio4" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio5">GPIO 5:</label></dt>
+				<label><input type="radio" name="gpio5" value="1" onchange="setgpio(0,5)" /> Available</label>
+				<label><input type="radio" name="gpio5" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio1">GPIO 9:</label></dt>
+				<label><input type="radio" name="gpio9" value="1" onchange="setgpio(0,9)" /> Available</label>
+				<label><input type="radio" name="gpio9" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio2">GPIO 10:</label></dt>
+				<label><input type="radio" name="gpio10" value="1" onchange="setgpio(0,10)" /> Available</label>
+				<label><input type="radio" name="gpio10 value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio3">GPIO 12:</label></dt>
+				<label><input type="radio" name="gpio12" value="1" onchange="setgpio(0,12)" /> Available</label>
+				<label><input type="radio" name="gpio12" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio4">GPIO 13:</label></dt>
+				<label><input type="radio" name="gpio13" value="1" onchange="setgpio(0,13)" /> Available</label>
+				<label><input type="radio" name="gpio13" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio5">GPIO 14:</label></dt>
+				<label><input type="radio" name="gpio14" value="1" onchange="setgpio(0,14)" /> Available</label>
+				<label><input type="radio" name="gpio14" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio4">GPIO 15:</label></dt>
+				<label><input type="radio" name="gpio15" value="1" onchange="setgpio(0,15)" /> Available</label>
+				<label><input type="radio" name="gpio15" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="gpio5">GPIO 16:</label></dt>
+				<label><input type="radio" name="gpio16" value="1" onchange="setgpio(0,16)" /> Available</label>
+				<label><input type="radio" name="gpio16" value="0" checked="checked" onchange="setgpio(0,0)" /> Not Available</label>
+			</dl>
+			<dl>
+				<dt><label for="adc">ADC:</label></dt>
+				<label><input type="radio" name="adc" value="1" " /> Available</label>
+				<label><input type="radio" name="adc" value="0" checked="checked" " /> Not Available</label>
+			</dl>
+		</fieldset>
+		<!--
+		<fieldset class="submit-buttons">
+			<input class="button1" type="submit" id="submit" name="submit" value="Submit" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="Reset" />&nbsp;
+		</fieldset>
+		-->
+	</div>
+</form>
+
+
+<?php
+include('footer.html');
+
+************/
+
+
+<a href="" onclick="getdata()">Get Data</a>
+
+
+
+**********************
+
+	function makeHttpObject()
+	{
+	  try {return new XMLHttpRequest();}
+	  catch (error) {}
+	  try {return new ActiveXObject("Msxml2.XMLHTTP");}
+	  catch (error) {}
+	  try {return new ActiveXObject("Microsoft.XMLHTTP");}
+	  catch (error) {}
+	  throw new Error("Could not create HTTP request object.");
+	}
+
+	function httpGet(theUrl)
+	{
+		///alert(theUrl);
+
+		if (window.XMLHttpRequest)
+		{
+			xmlhttp=new XMLHttpRequest();
+		}
+		else
+		{
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange=function()
+		{
+			if (xmlhttp.readyState==4 && xmlhttp.status==200)
+			{
+				return xmlhttp.responseText;
+				//alert(xmlhttp.responseText);
+			}
+		}
+		xmlhttp.open("GET", theUrl, false);
+		xmlhttp.send();
+	}
+
+
+	function httpGet(theUrl)
+	{
+		///alert(theUrl);
+
+		if (window.XMLHttpRequest)
+		{
+			xmlhttp=new XMLHttpRequest();
+		}
+		else
+		{
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange=function()
+		{
+			if (xmlhttp.readyState==4 && xmlhttp.status==200)
+			{
+				return xmlhttp.responseText;
+				//alert(xmlhttp.responseText);
+			}
+		}
+		xmlhttp.open("GET", theUrl, false);
+		xmlhttp.send();
+	}
+
+
+******
+					&nbsp; <input class="button1" type="submit" name="submit" value="Process" onclick="getdata()" />
+****
+
+
+
+
+
+
+    <script type="text/javascript">
+    //<![CDATA[
+
+    var invocation = new XMLHttpRequest();
+    //var url = '192.168.1.8';
+    var invocationHistoryText;
+    var body = '<?xml version="1.0"?><person><name>Arun</name></person>';
+
+    function callOtherDomain(url){
+        if(invocation)
+        {
+            invocation.open('POST', url, true);
+            invocation.setRequestHeader('X-PINGARUNER', 'pingpong');
+            invocation.setRequestHeader('Content-Type', 'application/xml');
+            invocation.onreadystatechange = handler;
+            invocation.send(body);
+        }
+        else
+        {
+            invocationHistoryText = "No Invocation TookPlace At All";
+            var textNode = document.createTextNode(invocationHistoryText);
+            var textDiv = document.getElementById("textDiv");
+            textDiv.appendChild(textNode);
+        }
+
+    }
+    function handler(evtXHR)
+    {
+        if (invocation.readyState == 4)
+        {
+                if (invocation.status == 200)
+                {
+                    var response = invocation.responseText;
+                    //var invocationHistory = response.getElementsByTagName('invocationHistory').item(0).firstChild.data;
+                    invocationHistoryText = document.createTextNode(response);
+                    var textDiv = document.getElementById("textDiv");
+                    textDiv.appendChild(invocationHistoryText);
+
+                }
+                else
+                {
+                    alert("Invocation Errors Occured " + invocation.readyState + " and the status is " + invocation.status);
+                }
+        }
+        else
+        {
+            dump("currently the application is at" + invocation.readyState);
+        }
+    }
+    //]]>
+
+
+    </script>
+
+
+callOtherDomain(ip);
+
+
+
+
+<div id="textDiv">
+This XHTML document POSTs to another resource using cross-site XHR.  If you get a response back, the content of that response should reflect what you POSTed.
+</div>
+
+
+*******
+
+<div>
+	<form id="getinfo" method="post" action="">
+
+		<fieldset class="fields2">
+			<legend>ESP data</legend>
+			<dl>
+				<dt><label for="esp">IP:</label></dt>
+				<dd><input style="border-radius: 5px; width:120px" class="text" type="text" name="ip" id="ip" placeholder="192.168.1.1" size="15" maxlength="15" tabindex="1" />
+					&nbsp; <a href="#" onclick="getdata()">Process1</a>
+				</dd>
+			</dl>
+
+		</fieldset>
+		<!--
+		<fieldset class="submit-buttons">
+			<input class="button1" type="submit" id="submit" name="submit" value="Retrieve Data" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="Reset" />&nbsp;
+		</fieldset>
+		-->
+	</form>
+</div>
+
+*******
+
+
+
+
+
+			<legend>Available GPIO's</legend>
+			<dl>
+				<dt><label for="gpio0">GPIO 0:</label></dt>
+				<?php if ($json_array['gpio0'] == 1) { ?>
+				<label><input type="radio" name="gpio0" value="<?php echo $json_array['gpio0']; ?>" checked="checked" /> Available</label>
+				<?php } else { ?>
+				<label><input type="radio" name="gpio0" value="<?php echo $json_array['gpio0']; ?>" checked="checked" /> Not Available</label>
+				<?php } ?>
+			</dl>
+
+
+
+
+
+
+
+
+
+/**********************************************/
+GPIO's
+	<table class="ttable">
+		<tr>
+			<th style="text-align:center">ID</th>
+			<th style="width:10px; text-align:center; font-size:14px" title="IO 0">00</th>
+			<th style="width:10px; text-align:center; font-size:14px" title="IO 1">01</th>
+			<th style="width:10px; text-align:center; font-size:14px" title="IO 2">02</th>
+			<th style="width:10px; text-align:center; font-size:14px" title="IO 3">03</th>
+			<th style="width:10px; text-align:center; font-size:14px" title="IO 4">04</th>
+			<th style="width:10px; text-align:center; font-size:14px" title="IO 5">05</th>
+			<th style="width:10px; text-align:center; font-size:14px" title="IO 9">09</th>
+			<th style="width:10px; text-align:center; font-size:14px" title="IO10">10</th>
+			<th style="width:10px; text-align:center; font-size:14px" title="IO12">12</th>
+			<th style="width:10px; text-align:center; font-size:14px" title="IO13">13</th>
+			<th style="width:10px; text-align:center; font-size:14px" title="IO14">14</th>
+			<th style="width:10px; text-align:center; font-size:14px" title="IO15">15</th>
+			<th style="width:10px; text-align:center; font-size:14px" title="IO16">16</th>
+			<th style="width:10px; text-align:center; font-size:14px" title="ADC">ADC</th>
+		</tr>
+
+<?php foreach($json_arrays as $json_array) { ?>
+		<tr class="client">
+			<td style="text-align:left; width:100px;"><?php echo $json_array['id']; ?></td>
+			<td style="width:10px; text-align:right;"><?php echo $json_array['gpio0']; ?></td>
+			<td style="width:10px; text-align:right;"><?php echo $json_array['gpio1']; ?></td>
+			<td style="width:10px; text-align:right;"><?php echo $json_array['gpio2']; ?></td>
+			<td style="width:10px; text-align:right;"><?php echo $json_array['gpio3']; ?></td>
+			<td style="width:10px; text-align:right;"><?php echo $json_array['gpio4']; ?></td>
+			<td style="width:10px; text-align:right;"><?php echo $json_array['gpio5']; ?></td>
+			<td style="width:10px; text-align:right;"><?php echo $json_array['gpio9']; ?></td>
+			<td style="width:10px; text-align:right;"><?php echo $json_array['gpio10']; ?></td>
+			<td style="width:10px; text-align:right;"><?php echo $json_array['gpio12']; ?></td>
+			<td style="width:10px; text-align:right;"><?php echo $json_array['gpio13']; ?></td>
+			<td style="width:10px; text-align:right;"><?php echo $json_array['gpio14']; ?></td>
+			<td style="width:10px; text-align:right;"><?php echo $json_array['gpio15']; ?></td>
+			<td style="width:10px; text-align:right;"><?php echo $json_array['gpio16']; ?></td>
+			<td style="width:10px; text-align:right;"><?php echo $json_array['adc']; ?></td>
+		</tr>
+
+<?php } ?>
+	</table>
+
+
+
+
+<input class="post" size="15" maxlength="15" id="ip" name="ip" value="<?php echo $json_array['ip']; ?>" type="text">
+<input class="post" size="24" maxlength="100" id="location" name="location" value="<?php echo $json_array['location']; ?>" type="text">
+<input class="post" size="24" maxlength="100" name="type" value="<?php echo $json_array['type']; ?>" type="text">
+<input class="post" size="24" maxlength="100" name="location" value="<?php echo $json_array['location']; ?>" type="text">
+
+/**********************************************/
+
+<form id="esp_edit" name="esp_edit" method="post" action="edit.php?action=submit">
+	<h3 style="margin: 3px;">Here you can edit the current sensor data...</h3>
+	<div>
+		<fieldset>
+			<legend>Data</legend>
+			<dl>
+				<dt><label for="id">ID:</label></dt>
+				<dd><input class="post" size="5" maxlength="10" id="id" name="id" value="<?php echo $json_array['id']; ?>" type="text"></dd>
+			</dl>
+			<dl>
+				<dt><label for="ip">IP:</label></dt>
+				<dd><input class="post" size="15" maxlength="15" id="ip" name="ip" value="<?php echo $json_array['ip']; ?>" type="text"></dd>
+			</dl>
+			<dl>
+				<dt><label for="type">Type:</label></dt>
+				<dd><input class="post" size="24" maxlength="100" name="type" value="<?php echo $json_array['type']; ?>" type="text"></dd>
+			</dl>
+			<dl>
+				<dt><label for="location">Location:</label></dt>
+				<dd><input class="post" size="24" maxlength="100" name="location" value="<?php echo $json_array['location']; ?>" type="text"></dd>
+			</dl>
+			<dl>
+				<dt><label for="zone">Zone:</label></dt>
+				<dd><input class="post" size="10" maxlength="4" name="zone" value="<?php echo $json_array['zone']; ?>" type="text"></dd>
+			</dl>
+			<dl>
+				<dt><label for="time">Last activity time:</label></dt>
+				<dd><input class="post" size="10" maxlength="10" name="time" value="<?php echo $json_array['time']; ?>" type="text"></dd>
+			</dl>
+			<dl>
+				<dt><label for="date">Last activity date:</label></dt>
+				<dd><input class="post" size="10" maxlength="10" name="date" value="<?php echo $json_array['date']; ?>" type="text"></dd>
+			</dl>
+			<dl>
+				<dt><label for="level">Sensor Level:</label></dt>
+				<dd><input class="post" size="10" maxlength="4" name="level" value="<?php echo $json_array['level']; ?>" type="text"></dd>
+			</dl>
+			<dl>
+				<dt><label for="tresh">Trigger Level:</label></dt>
+				<dd><input class="post" size="10" maxlength="4" name="tresh" value="<?php echo $json_array['tresh']; ?>" type="text"></dd>
+			</dl>
+			<dl>
+				<dt><label for="batt">Battery voltage:</label></dt>
+				<dd><input class="post" size="10" maxlength="4" name="batt" value="<?php echo $json_array['batt']; ?>" type="text"></dd>
+			</dl>
+			<dl>
+				<dt><label for="actives">Total activations:</label></dt>
+				<dd><input class="post" size="10" maxlength="6" name="actives" value="<?php echo $json_array['actives']; ?>" type="text"></dd>
+			</dl>
+			<dl>
+				<dt><label for="adc">ADC:</label></dt>
+				<label><input type="radio" name="adc" value="<?php echo $json_array['adc']; ?>" <?php if ($json_array['adc'] == 1) { ?>checked="checked"<?php } ?> /> Available</label>
+				<label><input type="radio" name="adc" value="<?php echo $json_array['adc']; ?>" <?php if ($json_array['adc'] == 0) { ?>checked="checked"<?php } ?> /> Not Available</label>
+			</dl>
+		</fieldset>
+
+		<fieldset>
+			<legend>Available GPIO's</legend>
+
+			<?php if ($json_array['gpio0'] == 1) { ?>
+			<dl>
+				<dt><label for="gpio0">GPIO 0:</label></dt>
+				<label><input type="radio" name="gpio0" value="<?php echo $json_array['gpio0']; ?>" checked="checked" /> Available</label>
+			</dl>
+			<?php } ?>
+			<?php if ($json_array['gpio1'] == 1) { ?>
+			<dl>
+				<dt><label for="gpio1">GPIO 1:</label></dt>
+				<label><input type="radio" name="gpio1" value="<?php echo $json_array['gpio1']; ?>" checked="checked" /> Available</label>
+			</dl>
+			<?php } ?>
+			<?php if ($json_array['gpio2'] == 1) { ?>
+			<dl>
+				<dt><label for="gpio2">GPIO 2:</label></dt>
+				<label><input type="radio" name="gpio2" value="<?php echo $json_array['gpio2']; ?>" checked="checked" /> Available</label>
+			</dl>
+			<?php } ?>
+			<?php if ($json_array['gpio3'] == 1) { ?>
+			<dl>
+				<dt><label for="gpio3">GPIO 3:</label></dt>
+				<label><input type="radio" name="gpio3" value="<?php echo $json_array['gpio3']; ?>" checked="checked" /> Available</label>
+			</dl>
+			<?php } ?>
+			<?php if ($json_array['gpio4'] == 1) { ?>
+			<dl>
+				<dt><label for="gpio4">GPIO 4:</label></dt>
+				<label><input type="radio" name="gpio4" value="<?php echo $json_array['gpio4']; ?>" checked="checked" /> Available</label>
+			</dl>
+			<?php } ?>
+			<?php if ($json_array['gpio5'] == 1) { ?>
+			<dl>
+				<dt><label for="gpio5">GPIO 5:</label></dt>
+				<label><input type="radio" name="gpio5" value="<?php echo $json_array['gpio5']; ?>" checked="checked" /> Available</label>
+			</dl>
+			<?php } ?>
+			<?php if ($json_array['gpio9'] == 1) { ?>
+			<dl>
+				<dt><label for="gpio1">GPIO 9:</label></dt>
+				<label><input type="radio" name="gpio9" value="<?php echo $json_array['gpio9']; ?>" checked="checked" /> Available</label>
+			</dl>
+			<?php } ?>
+			<?php if ($json_array['gpio10'] == 1) { ?>
+			<dl>
+				<dt><label for="gpio2">GPIO 10:</label></dt>
+				<label><input type="radio" name="gpio10" value="<?php echo $json_array['gpio10']; ?>" checked="checked" /> Available</label>
+			</dl>
+			<?php } ?>
+			<?php if ($json_array['gpio12'] == 1) { ?>
+			<dl>
+				<dt><label for="gpio3">GPIO 12:</label></dt>
+				<label><input type="radio" name="gpio12" value="<?php echo $json_array['gpio12']; ?>" checked="checked"  /> Available</label>
+			</dl>
+			<?php } ?>
+			<?php if ($json_array['gpio13'] == 1) { ?>
+			<dl>
+				<dt><label for="gpio4">GPIO 13:</label></dt>
+				<label><input type="radio" name="gpio13" value="<?php echo $json_array['gpio13']; ?>" checked="checked" /> Available</label>
+			</dl>
+			<?php } ?>
+			<?php if ($json_array['gpio14'] == 1) { ?>
+			<dl>
+				<dt><label for="gpio5">GPIO 14:</label></dt>
+				<label><input type="radio" name="gpio14" value="<?php echo $json_array['gpio14']; ?>" checked="checked" /> Available</label>
+			</dl>
+			<?php } ?>
+			<?php if ($json_array['gpio15'] == 1) { ?>
+			<dl>
+				<dt><label for="gpio4">GPIO 15:</label></dt>
+				<label><input type="radio" name="gpio15" value="<?php echo $json_array['gpio15']; ?>" checked="checked" /> Available</label>
+			</dl>
+			<?php } ?>
+			<?php if ($json_array['gpio16'] == 1) { ?>
+			<dl>
+				<dt><label for="gpio5">GPIO 16:</label></dt>
+				<label><input type="radio" name="gpio16" value="<?php echo $json_array['gpio16']; ?>" checked="checked" /> Available</label>
+			</dl>
+			<?php } ?>
+
+			<dl>
+				<dt><label for="adc">GPIO's:</label></dt>
+				<label><input text class="post"  id="newgpios" name="newgpios" value="" type="text"></label>
+			</dl>
+
+
+		</fieldset>
+
+		<fieldset class="submit-buttons">
+			<input hidden class="post"  id="mode" name="mode" value="save" type="text">
+			<input class="button1" type="submit" id="submit" name="submit" value="Submit" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="Reset" />&nbsp;
+		</fieldset>
+	</div>
+</form>
+/*************************************************/
+
+				<input type="text" id="id" name="id" class="input" value="<?php echo $json_array['id']; ?>" />
+
+/********/
+
+
+
+
+
+/************
+
+
+
+<div class="box" style="margin:0; margin-bottom: 20px;">
+	<ul>
+		<li>ID: <span class="ajax" id="id" style="font-size:15px">
+		<?php echo $json_array['id']; ?>
+		</span></li>
+
+		<li>IP: <span class="ajax" id="ip" style="font-size:15px">
+		<?php echo $json_array['ip']; ?>
+		</span></li>
+		<li>gpio0: <span class="ajax" id="gpio0" style="font-size:15px">
+		<?php echo $json_array['gpio0']; ?>
+		</span></li>
+		<li>gpio1: <span class="ajax" id="gpio1" style="font-size:15px">
+		<?php echo $json_array['gpio1']; ?>
+		</span></li>
+		<li>gpio2: <span class="ajax" id="gpio2" style="font-size:15px">
+		<?php echo $json_array['gpio2']; ?>
+		</span></li>
+		<li>gpio3: <span class="ajax" id="gpio3" style="font-size:15px">
+		<?php echo $json_array['gpio3']; ?>
+		</span></li>
+		<li>gpio4: <span class="ajax" id="gpio4" style="font-size:15px">
+		<?php echo $json_array['gpio4']; ?>
+		</span></li>
+		<li>gpio5: <span class="ajax" id="gpio5" style="font-size:15px">
+		<?php echo $json_array['gpio5']; ?>
+		</span></li>
+		<li>gpio9: <span class="ajax" id="gpio9" style="font-size:15px">
+		<?php echo $json_array['gpio9']; ?>
+		</span></li>
+		<li>gpio10: <span class="ajax" id="gpio10" style="font-size:15px">
+		<?php echo $json_array['gpio10']; ?>
+		</span></li>
+		<li>gpio12: <span class="ajax" id="gpio12" style="font-size:15px">
+		<?php echo $json_array['gpio12']; ?>
+		</span></li>
+		<li>gpio13: <span class="ajax" id="gpio13" style="font-size:15px">
+		<?php echo $json_array['gpio13']; ?>
+		</span></li>
+		<li>gpio14: <span class="ajax" id="gpio14" style="font-size:15px">
+		<?php echo $json_array['gpio14']; ?>
+		</span></li>
+		<li>gpio15: <span class="ajax" id="gpio15" style="font-size:15px">
+		<?php echo $json_array['gpio15']; ?>
+		</span></li>
+		<li>gpio16: <span class="ajax" id="gpio16" style="font-size:15px">
+		<?php echo $json_array['gpio16']; ?>
+		</span></li>
+		<li>ADC: <span class="ajax" id="adc" style="font-size:15px">
+		<?php echo $json_array['adc']; ?>
+		</span></li>
+
+
+		<li>Type: <span class="ajax" id="type" style="font-size:15px">
+		<?php echo $json_array['type']; ?>
+		</span></li>
+		<li>Zone: <span class="ajax" id="zone" style="font-size:15px">
+		<?php echo $json_array['zone']; ?>
+		</span></li>
+		<li>Location: <span class="ajax" id="location" style="font-size:15px">
+		<?php echo $json_array['location']; ?>
+		</span></li>
+		<li>Time: <span class="ajax" id="time" style="font-size:15px">
+		<?php echo $json_array['time']; ?>
+		</span> (UCT)</li>
+		<li>Date: <span class="ajax" id="date" style="font-size:15px">
+		<?php echo $json_array['date']; ?>
+		</span></li>
+		<li>Sensor: <span class="ajax" id="level" style="font-size:15px">
+		<?php echo $json_array['level']; ?>
+		</span></li>
+		<li>Battery: <span class="ajax" id="batt" style="font-size:15px;">
+		<?php echo $json_array['batt']; ?>
+		</span> Volts</li>
+		<li>Actives: <span class="ajax" id="actives" style="font-size:15px;">
+		<?php echo $json_array['actives']; ?>
+		</span></li>
+	</ul>
+</div>
+
+
+
+**************/
+///////////////////////////////////
+
+
+
+/*
+	if (!$auth)
+	{
+		header('Location: login.php');
+	}
+*/
+/*
+	$sql = "SELECT user, pass, auth
+		FROM login
+		WHERE user = '" . $user . "' and auth = 1";
+
+	$result = mysqli_query($dbhandle, $sql) or die("Error: " . mysqli_error($dbhandle));
+
+	$row = mysqli_fetch_row($result);
+
+	$_SESSION['user'] = $row['user'];
+	$_SESSION['pass'] = $row['pass'];
+	$_SESSION['auth'] = $row['auth'];
+
+	mysqli_free_result($result);
+*/
+
+	//include_once($root_path . 'includes/functions_main.' . $phpEx);
+	//meta_refresh(0, 'login.php');
+
+
+
+***
+
+
+/*
+if(isset($_SESSION['auth']))
+{
+	$auth = true;
+}
+else
+{
+	var_dump('Auth not set!!!!');
+}
+*/
+
+***
+
+//include($root_path . 'includes/sessions.' . $phpEx);
+session_start();
+//session_begin();
+
+///////////////////////////////////////////////////////////////////////////
+
+
+
+<?php
+
+function session_begin()
+{
+
+	$auth = false;
+	$pass = '';
+	$user = '';
+
+	include('database.php');
+	$dbhandle = mysqli_connect($hostname, $username, $password, $database) or die("Unable to connect to MySQL");
+	$selected = mysqli_select_db($dbhandle, "esp.login");
+
+	session_start();
+
+	$user = $_SESSION['user'];
+	$auth = $_SESSION['auth'];
+
+/*
+	if (!$auth)
+	{
+		header('Location: login.php');
+	}
+*/
+/*
+	$sql = "SELECT user, pass, auth
+		FROM login
+		WHERE user = '" . $user . "' and auth = 1";
+
+	$result = mysqli_query($dbhandle, $sql) or die("Error: " . mysqli_error($dbhandle));
+
+	$row = mysqli_fetch_row($result);
+
+	$_SESSION['user'] = $row['user'];
+	$_SESSION['pass'] = $row['pass'];
+	$_SESSION['auth'] = $row['auth'];
+
+	mysqli_free_result($result);
+*/
+
+	//include_once($root_path . 'includes/functions_main.' . $phpEx);
+	//meta_refresh(0, 'login.php');
+
+}
+
+?>
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+if($auth)
+{
+//	header("location: index.php");
+}
+else
+{
+	include('header.html');
+	include('left_blocks.html');
+?>
+
+	<div class="formLayout">
+		<h2>Login Form</h2>
+		<form name="login" id="login" action="index.php" method="post">
+			<div>
+				<label>UserName :</label>
+				<input id="user" name="user" placeholder="<?php $user ?>" type="text">
+				<label>Password :</label>
+				<input id="pass" name="pass" type="password" placeholder="**********">
+			</div>
+			<div style="clear:both; text-align:center">
+				<br />
+				<label></label>
+				<input class="btn" name="submit" type="submit" value=" Login ">
+			</div>
+			<div style="clear:both; text-align:center">
+				<span style="font-size: 1.2em;"><?php echo $error; ?></span>
+			</div>
+		</form>
+	</div>
+
+<?php
+	include('footer.html');
+}
+exit;
+
+**************
+			//meta_refresh(0, 'index.php?id=' . $id);
+******************
